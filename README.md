@@ -1,1 +1,1 @@
-Partyservice von Cedric Dähn, Andreas Gesswein, Miguel Weiß, Tiago Kaminski und Tom Becker
+Partyservice von Cedric Daehn, Andreas Gesswein, Miguel Weiss, Tiago Kaminski und Tom Becker
