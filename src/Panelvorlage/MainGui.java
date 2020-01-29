@@ -7,6 +7,8 @@ import java.util.HashMap;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
+import javax.swing.SwingWorker;
+import javax.swing.Timer;
 import javax.swing.border.EmptyBorder;
 
 public class MainGui extends JFrame {
@@ -46,9 +48,19 @@ public class MainGui extends JFrame {
 		//panels.put(Views.impressum, this.impressum);
 	}
 
-	public void switchTo(Views v) {
-		setContentPane(this.panels.get(v));
-		
-		SwingUtilities.updateComponentTreeUI(this);
+	
+	/**
+	 * 
+	 * @param v
+	 * @param zeitTimer
+	 */
+	public void switchTo(Views v, int zeitTimer) {
+		Timer t=new Timer(zeitTimer, e ->  {
+			setContentPane(this.panels.get(v));
+			SwingUtilities.updateComponentTreeUI(this);
+		});
+		t.start();	
 	}
+	
+	
 }
