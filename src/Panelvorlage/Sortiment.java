@@ -24,7 +24,7 @@ public class Sortiment extends Panelvorlage {
 					buttonZumWarenkorbActionPerformed(e);
 				}
 			});
-			buttonZumWarenkorb.setBounds(351, 75, 89, 23);
+			buttonZumWarenkorb.setBounds(361, 256, 89, 23);
 			add(buttonZumWarenkorb);
 		}
 	}

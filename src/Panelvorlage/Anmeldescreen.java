@@ -25,6 +25,6 @@ public class Anmeldescreen extends Panelvorlage {
 		}
 	}
 	protected void buttonNewButtonActionPerformed(ActionEvent e) {
-		maingui.switchTo(v.liveSuche, 0);
+		maingui.switchTo(v.liveSuche);
 	}
 }
