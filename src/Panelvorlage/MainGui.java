@@ -47,7 +47,7 @@ public class MainGui extends JFrame {
 		setBounds(100, 100, 450, 300);
 		setContentPane(wilkommensscren);
 		
-		switchTo(Views.liveSuche, 5000);
+		switchToWithDelay(Views.liveSuche, 5000);
 
 		panels.put(Views.wilkommensscreen, this.wilkommensscren);
 		panels.put(Views.anmeldescreen, this.anmeldescreen);
@@ -67,10 +67,6 @@ public class MainGui extends JFrame {
 			switchTo(v);
 		});
 		t.start();
-<<<<<<< HEAD
-=======
-
->>>>>>> 618c5f3daa9974569100a802ea40418823d26093
 	}
 	
 	public void switchTo(Views v) {
