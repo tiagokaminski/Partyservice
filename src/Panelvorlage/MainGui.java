@@ -1,21 +1,26 @@
 package Panelvorlage;
 
-import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
 import java.util.HashMap;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
+
 import javax.swing.SwingUtilities;
-import javax.swing.border.EmptyBorder;
+
+
+//import jpanels.Wilkommensscreen;
+//import jpanels.Views;
+
 
 public class MainGui extends JFrame {
 
 	//private JPanel contentPane;
-	//private Startseite startseite = new Startseite(this);
-	//private Profil profil = new Profil(this);
-	//private Impressum impressum = new Impressum(this);
+	
+	private Wilkommensscreen wilkommensscreen = new Wilkommensscreen(this);
+	private Livesuche livesuche = new Livesuche(this);
 	private HashMap<Views, Panelvorlage> panels = new HashMap<>();
+
 	
 	/**
 	 * Launch the application.
@@ -39,16 +44,17 @@ public class MainGui extends JFrame {
 	public MainGui() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
-		//setContentPane(startseite);
+		setContentPane(wilkommensscreen);
 		
-		//panels.put(Views.startseite, this.startseite);
-		//panels.put(Views.profil, this.profil);
-		//panels.put(Views.impressum, this.impressum);
+		panels.put(Views.wilkommensscreen, this.wilkommensscreen);
+		panels.put(Views.liveSuche, this.livesuche);
 	}
 
 	public void switchTo(Views v) {
 		setContentPane(this.panels.get(v));
-		
 		SwingUtilities.updateComponentTreeUI(this);
 	}
 }
+
+
+

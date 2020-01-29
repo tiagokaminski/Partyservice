@@ -12,7 +12,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-public class Panelvorlage extends JFrame {
+public class Panelvorlage extends JPanel {
 
 	private JTextField Ueberschrift;
 	protected Views v;
