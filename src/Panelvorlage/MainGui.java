@@ -16,6 +16,9 @@ public class MainGui extends JFrame {
 
 	private Wilkommensscreen wilkommensscreen = new Wilkommensscreen(this);
 	private Livesuche livesuche = new Livesuche(this);
+	private Sortiment sortiment = new Sortiment(this);
+	private Warenkorb warenkorb = new Warenkorb(this);
+	private Kasse kasse = new Kasse(this);
 	private HashMap<Views, Panelvorlage> panels = new HashMap<>();
 
 
@@ -45,6 +48,9 @@ public class MainGui extends JFrame {
 
 		panels.put(Views.wilkommensscreen, this.wilkommensscreen);
 		panels.put(Views.liveSuche, this.livesuche);
+		panels.put(Views.sortiment, this.sortiment);
+		panels.put(Views.warenkorb, this.warenkorb);
+		panels.put(Views.kasse, this.kasse);
 	}
 
 	/**
@@ -52,15 +58,21 @@ public class MainGui extends JFrame {
 	 * @param v
 	 * @param zeitTimer
 	 */
-	public void switchTo(Views v, int zeitTimer) {
+	public void switchToWithDelay(Views v, int zeitTimer) {
 		Timer t=new Timer(zeitTimer, e ->  {
-			setContentPane(this.panels.get(v));
-			SwingUtilities.updateComponentTreeUI(this);
+			switchTo(v);
 		});
 		t.start();
 
-
 	}
+	
+	public void switchTo(Views v) {
+		setContentPane(this.panels.get(v));
+		SwingUtilities.updateComponentTreeUI(this);
+	}
+	
+	
+
 }
 
 
