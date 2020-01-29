@@ -27,6 +27,10 @@ public class Livesuche extends Panelvorlage {
 	}
 
 	protected void buttonNewButtonActionPerformed(ActionEvent e) {
+<<<<<<< HEAD
+		maingui.switchTo(v.sortiment, 0);
+=======
 		maingui.switchTo(v.sortiment);
+>>>>>>> 618c5f3daa9974569100a802ea40418823d26093
 	}
 }

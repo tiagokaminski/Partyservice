@@ -14,7 +14,8 @@ import javax.swing.border.EmptyBorder;
 
 public class MainGui extends JFrame {
 
-	private Wilkommensscreen wilkommensscreen = new Wilkommensscreen(this);
+	private Anmeldescreen anmeldescreen = new Anmeldescreen(this);
+	private Wilkommensscreen wilkommensscren = new Wilkommensscreen(this);
 	private Livesuche livesuche = new Livesuche(this);
 	private Sortiment sortiment = new Sortiment(this);
 	private Warenkorb warenkorb = new Warenkorb(this);
@@ -44,9 +45,12 @@ public class MainGui extends JFrame {
 	public MainGui() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
-		setContentPane(wilkommensscreen);
+		setContentPane(wilkommensscren);
+		
+		switchTo(Views.liveSuche, 5000);
 
-		panels.put(Views.wilkommensscreen, this.wilkommensscreen);
+		panels.put(Views.wilkommensscreen, this.wilkommensscren);
+		panels.put(Views.anmeldescreen, this.anmeldescreen);
 		panels.put(Views.liveSuche, this.livesuche);
 		panels.put(Views.sortiment, this.sortiment);
 		panels.put(Views.warenkorb, this.warenkorb);
@@ -63,7 +67,10 @@ public class MainGui extends JFrame {
 			switchTo(v);
 		});
 		t.start();
+<<<<<<< HEAD
+=======
 
+>>>>>>> 618c5f3daa9974569100a802ea40418823d26093
 	}
 	
 	public void switchTo(Views v) {
