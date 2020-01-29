@@ -14,7 +14,8 @@ import javax.swing.border.EmptyBorder;
 
 public class MainGui extends JFrame {
 
-	private Wilkommensscreen wilkommensscreen = new Wilkommensscreen(this);
+	private Anmeldescreen anmeldescreen = new Anmeldescreen(this);
+	private Wilkommensscreen wilkommensscren = new Wilkommensscreen(this);
 	private Livesuche livesuche = new Livesuche(this);
 	private HashMap<Views, Panelvorlage> panels = new HashMap<>();
 
@@ -41,9 +42,12 @@ public class MainGui extends JFrame {
 	public MainGui() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
-		setContentPane(wilkommensscreen);
+		setContentPane(wilkommensscren);
+		
+		switchTo(Views.liveSuche, 5000);
 
-		panels.put(Views.wilkommensscreen, this.wilkommensscreen);
+		panels.put(Views.wilkommensscreen, this.wilkommensscren);
+		panels.put(Views.anmeldescreen, this.anmeldescreen);
 		panels.put(Views.liveSuche, this.livesuche);
 	}
 
@@ -58,8 +62,6 @@ public class MainGui extends JFrame {
 			SwingUtilities.updateComponentTreeUI(this);
 		});
 		t.start();
-
-
 	}
 }
 
