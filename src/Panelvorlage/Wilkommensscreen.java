@@ -35,5 +35,7 @@ public class Wilkommensscreen extends Panelvorlage {
 			labelVonAndreasTom.setBounds(0, 207, 453, 26);
 			add(labelVonAndreasTom);
 		}
+		
+		
 	}
 }

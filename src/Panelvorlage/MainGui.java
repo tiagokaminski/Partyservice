@@ -21,6 +21,7 @@ public class MainGui extends JFrame {
 	private Warenkorb warenkorb = new Warenkorb(this);
 	private Kasse kasse = new Kasse(this);
 	private HashMap<Views, Panelvorlage> panels = new HashMap<>();
+	private Timer t;
 
 
 	/**
@@ -47,8 +48,9 @@ public class MainGui extends JFrame {
 		setBounds(100, 100, 450, 300);
 		setContentPane(wilkommensscren);
 		
-		switchToWithDelay(Views.liveSuche, 5000);
-
+		switchToWithDelay(Views.anmeldescreen, 5000);
+	
+		
 		panels.put(Views.wilkommensscreen, this.wilkommensscren);
 		panels.put(Views.anmeldescreen, this.anmeldescreen);
 		panels.put(Views.liveSuche, this.livesuche);
@@ -63,8 +65,9 @@ public class MainGui extends JFrame {
 	 * @param zeitTimer
 	 */
 	public void switchToWithDelay(Views v, int zeitTimer) {
-		Timer t=new Timer(zeitTimer, e ->  {
+		t=new Timer(zeitTimer, e ->  {
 			switchTo(v);
+			t.stop();
 		});
 		t.start();
 	}
@@ -74,8 +77,6 @@ public class MainGui extends JFrame {
 		SwingUtilities.updateComponentTreeUI(this);
 	}
 	
-	
-
 }
 
 
