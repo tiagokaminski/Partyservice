@@ -6,7 +6,6 @@ import javax.swing.JTextField;
 import java.awt.Font;
 
 public class Wilkommensscreen extends Panelvorlage {
-	private JLabel labelWilkommen;
 	private JLabel labelPartyservice;
 	private JLabel labelVonAndreasTom;
 
@@ -19,15 +18,9 @@ public class Wilkommensscreen extends Panelvorlage {
 	}
 	private void initGUI() {
 		{
-			labelWilkommen = new JLabel("Wilkommen beim ");
-			labelWilkommen.setFont(new Font("Tahoma", Font.PLAIN, 30));
-			labelWilkommen.setBounds(84, 46, 265, 26);
-			add(labelWilkommen);
-		}
-		{
 			labelPartyservice = new JLabel("Partyservice");
 			labelPartyservice.setFont(new Font("Tahoma", Font.PLAIN, 30));
-			labelPartyservice.setBounds(109, 93, 167, 26);
+			labelPartyservice.setBounds(134, 11, 169, 43);
 			add(labelPartyservice);
 		}
 		{
@@ -36,6 +29,12 @@ public class Wilkommensscreen extends Panelvorlage {
 			add(labelVonAndreasTom);
 		}
 		
+<<<<<<< HEAD
 		
+=======
+		JLabel lblSmiley = new JLabel("");
+		lblSmiley.setBounds(141, 151, 46, 14);
+		add(lblSmiley);
+>>>>>>> 7f2d028725c6061ef1f55577fae4151e66f091d1
 	}
 }
