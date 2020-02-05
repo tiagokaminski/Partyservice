@@ -33,6 +33,7 @@ public class Panelvorlage extends JPanel {
 		txtTest.setBounds(1834, 1002, 86, 20);
 		add(txtTest);
 		txtTest.setColumns(10);
+		this.setSize(1920, 1022);
 	}
 	
 	public void setUeberschrift(String Ueberschrift) {
