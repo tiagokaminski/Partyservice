@@ -29,12 +29,8 @@ public class Wilkommensscreen extends Panelvorlage {
 			add(labelVonAndreasTom);
 		}
 		
-<<<<<<< HEAD
-		
-=======
 		JLabel lblSmiley = new JLabel("");
 		lblSmiley.setBounds(141, 151, 46, 14);
 		add(lblSmiley);
->>>>>>> 7f2d028725c6061ef1f55577fae4151e66f091d1
 	}
 }
