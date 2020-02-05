@@ -52,7 +52,7 @@ public class MainGui extends JFrame {
 		setContentPane(wilkommensscren);
 		
 		
-		switchToWithDelay(Views.anmeldescreen, 5000);
+		switchToWithDelay(Views.anmeldescreen, 4000);
 	
 		
 		panels.put(Views.wilkommensscreen, this.wilkommensscren);
