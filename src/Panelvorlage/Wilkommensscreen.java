@@ -4,6 +4,7 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.awt.Font;
+import javax.swing.JTextPane;
 
 public class Wilkommensscreen extends Panelvorlage {
 	private JLabel labelPartyservice;
@@ -32,5 +33,10 @@ public class Wilkommensscreen extends Panelvorlage {
 		JLabel lblSmiley = new JLabel("");
 		lblSmiley.setBounds(141, 151, 46, 14);
 		add(lblSmiley);
+		
+		JTextPane txtpnDfghfh = new JTextPane();
+		txtpnDfghfh.setText("dfghfh");
+		txtpnDfghfh.setBounds(796, 998, 113, 20);
+		add(txtpnDfghfh);
 	}
 }
