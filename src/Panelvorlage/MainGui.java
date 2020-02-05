@@ -33,9 +33,12 @@ public class MainGui extends JFrame {
 				try {
 					MainGui frame = new MainGui();
 					frame.setVisible(true);
+					frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+					frame.setUndecorated(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+				
 			}
 		});
 	}
@@ -45,8 +48,9 @@ public class MainGui extends JFrame {
 	 */
 	public MainGui() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 960, 540);
 		setContentPane(wilkommensscren);
+		
 		
 		switchToWithDelay(Views.anmeldescreen, 5000);
 	
