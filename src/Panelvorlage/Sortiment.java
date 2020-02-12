@@ -21,6 +21,7 @@ import java.awt.Font;
 import javax.swing.border.TitledBorder;
 import javax.swing.UIManager;
 import java.awt.Color;
+import java.awt.font.TextAttribute;
 
 public class Sortiment extends Panelvorlage {
 	private JButton buttonZumWarenkorb;
@@ -68,22 +69,33 @@ public class Sortiment extends Panelvorlage {
 			add(buttonZumWarenkorb);
 		}
 		{
+			
+		}
+		{
 			list = new JList();
 			list.setBounds(21, 21, 1, 1);
 			add(list);
 		}
+		
 		{
 			panel = new JPanel();
-			panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Filter", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+			TitledBorder tb=new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Sortiment", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0));
+			tb.setTitleFont(new Font("Tahoma", Font.PLAIN, 25));
+			panel.setBorder(tb);
 			panel.setBounds(43, 53, 213, 652);
 			add(panel);
 			panel.setLayout(null);
+			
 			{
+				
+
+				}
 				radioButtonVodka = new JRadioButton("Vodka");
 				radioButtonVodka.setBounds(6, 71, 201, 35);
 				panel.add(radioButtonVodka);
 				radioButtonVodka.setFont(new Font("Tahoma", Font.PLAIN, 22));
 				buttonGroup.add(radioButtonVodka);
+				
 			}
 			{
 				radioButtonRum = new JRadioButton("Rum");
@@ -149,19 +161,19 @@ public class Sortiment extends Panelvorlage {
 				buttonGroup.add(radioButtonSkram);
 			}
 			{
-				labelAlkohol = new JLabel("Alkohol");
+				labelAlkohol = new JLabel("<html><u>Alkohol</u></html>");
 				labelAlkohol.setBounds(6, 43, 92, 26);
 				panel.add(labelAlkohol);
 				labelAlkohol.setFont(new Font("Tahoma", Font.PLAIN, 22));
 			}
 			{
-				labelSnacks = new JLabel("Snacks");
-				labelSnacks.setBounds(6, 390, 92, 26);
+				labelSnacks = new JLabel("<html><u>Snacks</u></html>");
+				labelSnacks.setBounds(6, 389, 92, 26);
 				panel.add(labelSnacks);
-				labelSnacks.setFont(new Font("Tahoma", Font.PLAIN, 23));
+				labelSnacks.setFont(new Font("Tahoma", Font.PLAIN, 22));
 			}
 			{
-				labelGetraenke = new JLabel("Getr\u00E4nke");
+				labelGetraenke = new JLabel("<html><u>Getränke</u></html>");
 				labelGetraenke.setBounds(6, 250, 144, 26);
 				panel.add(labelGetraenke);
 				labelGetraenke.setFont(new Font("Tahoma", Font.PLAIN, 22));
@@ -195,10 +207,10 @@ public class Sortiment extends Panelvorlage {
 				buttonGroup.add(radioButtonExtras);
 			}
 			{
-				labelExtras = new JLabel("Extras");
-				labelExtras.setBounds(6, 590, 92, 26);
+				labelExtras = new JLabel("<html><u>Extras</u></html>");
+				labelExtras.setBounds(6, 589, 92, 26);
 				panel.add(labelExtras);
-				labelExtras.setFont(new Font("Tahoma", Font.PLAIN, 23));
+				labelExtras.setFont(new Font("Tahoma", Font.PLAIN, 22));
 			}
 		}
 		{
@@ -207,7 +219,7 @@ public class Sortiment extends Panelvorlage {
 			buttonFilterAnwenden.setBounds(43, 726, 214, 35);
 			add(buttonFilterAnwenden);
 		}
-	}
+	
 	protected void buttonZumWarenkorbActionPerformed(ActionEvent e) {
 	maingui.switchTo(v.warenkorb);
 	}
