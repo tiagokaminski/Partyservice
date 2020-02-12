@@ -49,6 +49,8 @@ public class Sortiment extends Panelvorlage {
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private JButton buttonFilterAnwenden;
 	private JPanel panel;
+	FilterDao filterDao = new FilterDao();
+	
 
 	/**
 	 * Create the panel.
@@ -215,65 +217,85 @@ public class Sortiment extends Panelvorlage {
 			add(buttonFilterAnwenden);
 		}
 	}
+	
 	protected void buttonZumWarenkorbActionPerformed(ActionEvent e) {
 		maingui.switchTo(v.warenkorb);
 	}
 
 	protected void buttonFilterAnwendenActionPerformed(ActionEvent arg0) {
+		String alkohol = null;
+		String snacks = null;
+		String softdrinks = null;
+		String extras = null;
+		
 		if(radioButtonExtras.isSelected()) {
-
+			extras = "Extras";
+			filterDao.extrasAusgewaehlt(extras);
 		}
 
 		if(radioButtonVodka.isSelected()) {
-
+			alkohol = "Vodka";
+			filterDao.alkoholAusgewaehlt(alkohol);
 		}
 
 		if(radioButtonRum.isSelected()) {
-
+			alkohol = "Rum";
+			filterDao.alkoholAusgewaehlt(alkohol);
 		}
 
 		if(radioButtonKraeuterlikoer.isSelected()) {
-
+			alkohol = "Kreauterlikör";
+			filterDao.alkoholAusgewaehlt(alkohol);
 		}
 
 		if(radioButtonLikoer.isSelected()) {
-
+			alkohol = "Likör";
+			filterDao.alkoholAusgewaehlt(alkohol);
 		}
 
 		if(radioButtonWhiskey.isSelected()) {
-
+			alkohol = "Whiskey";
+			filterDao.alkoholAusgewaehlt(alkohol);
 		}
 
 		if(radioButtonSoftdrinks.isSelected()) {
-
+			softdrinks = "Softdrinks";
+			filterDao.softdrinksAusgewaehlt(softdrinks);
 		}
 
 		if(radioButtonSaefte.isSelected()) {
-
+			softdrinks = "Säfte";
+			filterDao.softdrinksAusgewaehlt(softdrinks);
 		}
 
 		if(radioButtonSonstiges.isSelected()) {
-
+			softdrinks = "Sonstiges";
+			filterDao.softdrinksAusgewaehlt(softdrinks);
 		}
 
 		if(radioButtonKnabberzeug.isSelected()) {
-
+			snacks = "Knabberzeug";
+			filterDao.snacksAusgewaehlt(snacks);
 		}
 
 		if(radioButtonPringles.isSelected()) {
-
+			snacks = "Pringles";
+			filterDao.snacksAusgewaehlt(snacks);
 		}
 
 		if(radioButtonLays.isSelected()) {
-
+			snacks = "Lays";
+			filterDao.snacksAusgewaehlt(snacks);
 		}
 
 		if(radioButtonPombaer.isSelected()) {
-
+			snacks = "Pombär";
+			filterDao.snacksAusgewaehlt(snacks);
 		}
 
 		if(radioButtonSuesskram.isSelected()) {
-
+			snacks = "Süßkram";
+			filterDao.snacksAusgewaehlt(snacks);
 		}
 	}
 }
