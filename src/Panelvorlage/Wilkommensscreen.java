@@ -5,6 +5,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.JTextPane;
+import javax.swing.SwingConstants;
 
 public class Wilkommensscreen extends Panelvorlage {
 	private JLabel labelPartyservice;
@@ -20,13 +21,14 @@ public class Wilkommensscreen extends Panelvorlage {
 	private void initGUI() {
 		{
 			labelPartyservice = new JLabel("Partyservice");
-			labelPartyservice.setFont(new Font("Tahoma", Font.PLAIN, 30));
-			labelPartyservice.setBounds(134, 11, 169, 43);
+			labelPartyservice.setHorizontalAlignment(SwingConstants.CENTER);
+			labelPartyservice.setFont(new Font("Tahoma", Font.PLAIN, 69));
+			labelPartyservice.setBounds(0, 11, 1920, 95);
 			add(labelPartyservice);
 		}
 		{
 			labelVonAndreasTom = new JLabel("Von Andreas, Tom, Tiago, Cedric und Miguel");
-			labelVonAndreasTom.setBounds(0, 207, 453, 26);
+			labelVonAndreasTom.setBounds(1617, 970, 274, 26);
 			add(labelVonAndreasTom);
 		}
 		
