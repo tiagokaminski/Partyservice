@@ -2,12 +2,30 @@ package Panelvorlage;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Image;
+import java.awt.Label;
+import java.awt.Toolkit;
+import java.awt.geom.RoundRectangle2D;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
 import java.util.HashMap;
 
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
+import java.awt.Color;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.Icon;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class MainGui extends JFrame {
 
@@ -16,11 +34,10 @@ public class MainGui extends JFrame {
 	//private Profil profil = new Profil(this);
 	//private Impressum impressum = new Impressum(this);
 	private HashMap<Views, Panelvorlage> panels = new HashMap<>();
+	private JLabel label = new JLabel();
 	
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -31,19 +48,43 @@ public class MainGui extends JFrame {
 				}
 			}
 		});
+	
 	}
 
 	/**
-	 * Create the frame.
+	 * Create the frame.8855
+	 * @throws IOException 
 	 */
-	public MainGui() {
+	
+	public MainGui() throws IOException {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Cedric\\Documents\\Eclipse-Schule\\RP-Project-2020\\PartyServiceProjekt\\bin\\Panelvorlage\\logo_Smileyx32px.png"));
+		setTitle("Partyservice\r\n");
+		setResizable(false);
+		this.setContentPane(new JLabel(new ImageIcon("C:\\Users\\Cedric\\Documents\\Eclipse-Schule\\RP-Project-2020\\PartyServiceProjekt\\projektPartyServiceHintergrung.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 1500, 900);
+		setUndecorated(true);
+		setShape(new RoundRectangle2D.Double(0, 0, 1500, 900, 20,  20));
+		getContentPane().setLayout(null);
 		//setContentPane(startseite);
-		
 		//panels.put(Views.startseite, this.startseite);
 		//panels.put(Views.profil, this.profil);
 		//panels.put(Views.impressum, this.impressum);
+		
+		label = new JLabel("");
+		label.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				System.exit(0);
+			}
+		});
+		//Image img = new ImageIcon(this.getClass().getResource("closeButton.png")).getImage();
+		label.setIcon(new ImageIcon("C:\\Users\\Cedric\\Documents\\Eclipse-Schule\\RP-Project-2020\\PartyServiceProjekt\\src\\Panelvorlage\\closeButtonx46.png"));
+		label.setBounds(1430, 15, 50, 50);
+		this.getContentPane().add(label);
+		this.setLocationRelativeTo(null);
+		
+		
 	}
 
 	public void switchTo(Views v) {
