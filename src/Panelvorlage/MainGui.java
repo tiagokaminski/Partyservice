@@ -45,7 +45,7 @@ public class MainGui extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		setContentPane(wilkommensscreen);
-
+		
 		panels.put(Views.wilkommensscreen, this.wilkommensscreen);
 		panels.put(Views.liveSuche, this.livesuche);
 		panels.put(Views.sortiment, this.sortiment);
