@@ -12,7 +12,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-public class Panelvorlage extends JFrame {
+public class Panelvorlage extends JPanel {
 	protected Views v;
 	protected MainGui maingui;
 
@@ -25,13 +25,17 @@ public class Panelvorlage extends JFrame {
 	}
 	private void initGUI() {
 		setBackground(Color.LIGHT_GRAY);
-		getContentPane().setLayout(null);
+
+		setLayout(null);
 		setBackground(Color.ORANGE);
 		
 	}
 	
 	public void setUeberschrift(String Ueberschrift) {
 	
+
+		setLayout(null);
+		this.setSize(1920, 1022);
 	}
 	
 	public void beautifyButton(JButton btn) {
