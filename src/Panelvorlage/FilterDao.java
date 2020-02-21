@@ -19,6 +19,7 @@ public class FilterDao {
 	private String datei4;
 	private String url4;
 	private Connection conn4;
+	private String produktnameSnacks;
 
 	public FilterDao() {
 		try {
@@ -63,8 +64,10 @@ public class FilterDao {
 		try {
 			conn = DriverManager.getConnection(url);
 
-			String sql = "INSERT into email(vorname, nachname, email) values(?, ?, ?)";
+			String sql = 	"Select Produktname FROM AlkoholSortiment\r\n" + 
+							"WHERE Kategorie_ID = ?";
 			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setString(1, alkohol);
 			ResultSet resultSet = statement.executeQuery();
 			if (resultSet.next()) {
 				
@@ -76,16 +79,60 @@ public class FilterDao {
 		}
 	}
 
-	public void snacksAusgewaehlt(String snacks) {
+	public String snacksAusgewaehlt(String snacks) {
+		try {
+			conn2 = DriverManager.getConnection(url2);
 
+			String sql = 	"Select Produktname FROM SnackSortiment\r\n" + 
+							"WHERE Kategorie_ID = ?";
+			PreparedStatement statement = conn2.prepareStatement(sql);
+			statement.setString(1, snacks);
+			ResultSet resultSet = statement.executeQuery();
+			if (resultSet.next()) {
+				String snackss = resultSet.getString(produktnameSnacks);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			
+		}
+		return produktnameSnacks;
 	}
 
 	public void softdrinksAusgewaehlt(String softdrinks) {
+		try {
+			conn3 = DriverManager.getConnection(url3);
 
+			String sql = 	"Select Produktname FROM SoftdrinksSortiment\r\n" + 
+							"WHERE Kategorie_ID = ?";
+			PreparedStatement statement = conn3.prepareStatement(sql);
+			statement.setString(1, softdrinks);
+			ResultSet resultSet = statement.executeQuery();
+			if (resultSet.next()) {
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			
+		}
 	}
 
 	public void extrasAusgewaehlt(String extras) {
+		try {
+			conn4 = DriverManager.getConnection(url4);
 
+			String sql = 	"Select Produktname FROM ExtraSortiment";
+			PreparedStatement statement = conn4.prepareStatement(sql);
+			statement.setString(1, extras);
+			ResultSet resultSet = statement.executeQuery();
+			if (resultSet.next()) {
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			
+		}
 	}
-
 }

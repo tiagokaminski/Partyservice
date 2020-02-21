@@ -15,7 +15,6 @@ import javax.swing.border.EmptyBorder;
 public class Panelvorlage extends JPanel {
 	protected Views v;
 	protected MainGui maingui;
-	private JTextField txtTest;
 
 	/**
 	 * Create the panel.
@@ -27,12 +26,6 @@ public class Panelvorlage extends JPanel {
 	private void initGUI() {
 		setBackground(Color.LIGHT_GRAY);
 		setLayout(null);
-		
-		txtTest = new JTextField();
-		txtTest.setText("Test");
-		txtTest.setBounds(1834, 1002, 86, 20);
-		add(txtTest);
-		txtTest.setColumns(10);
 		this.setSize(1920, 1022);
 	}
 	
