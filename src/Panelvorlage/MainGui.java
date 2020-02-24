@@ -1,3 +1,4 @@
+
 package Panelvorlage;
 
 
@@ -14,12 +15,14 @@ import javax.swing.border.EmptyBorder;
 
 public class MainGui extends JFrame {
 
-	private Wilkommensscreen wilkommensscreen = new Wilkommensscreen(this);
+	private Anmeldescreen anmeldescreen = new Anmeldescreen(this);
+	private Wilkommensscreen wilkommensscren = new Wilkommensscreen(this);
 	private Livesuche livesuche = new Livesuche(this);
 	private Sortiment sortiment = new Sortiment(this);
 	private Warenkorb warenkorb = new Warenkorb(this);
 	private Kasse kasse = new Kasse(this);
 	private HashMap<Views, Panelvorlage> panels = new HashMap<>();
+	private Timer t;
 
 
 	/**
@@ -31,9 +34,12 @@ public class MainGui extends JFrame {
 				try {
 					MainGui frame = new MainGui();
 					frame.setVisible(true);
+					frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+					//frame.setUndecorated(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+				
 			}
 		});
 	}
@@ -43,10 +49,15 @@ public class MainGui extends JFrame {
 	 */
 	public MainGui() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
-		setContentPane(wilkommensscreen);
+		setBounds(100, 100, 960, 540);
+		setContentPane(wilkommensscren);
 		
-		panels.put(Views.wilkommensscreen, this.wilkommensscreen);
+		
+		switchToWithDelay(Views.anmeldescreen, 4000);
+	
+		
+		panels.put(Views.wilkommensscreen, this.wilkommensscren);
+		panels.put(Views.anmeldescreen, this.anmeldescreen);
 		panels.put(Views.liveSuche, this.livesuche);
 		panels.put(Views.sortiment, this.sortiment);
 		panels.put(Views.warenkorb, this.warenkorb);
@@ -59,11 +70,11 @@ public class MainGui extends JFrame {
 	 * @param zeitTimer
 	 */
 	public void switchToWithDelay(Views v, int zeitTimer) {
-		Timer t=new Timer(zeitTimer, e ->  {
+		t=new Timer(zeitTimer, e ->  {
 			switchTo(v);
+			t.stop();
 		});
 		t.start();
-
 	}
 	
 	public void switchTo(Views v) {
@@ -71,9 +82,8 @@ public class MainGui extends JFrame {
 		SwingUtilities.updateComponentTreeUI(this);
 	}
 	
-	
-
 }
+
 
 
 

@@ -1,6 +1,12 @@
+
 package Panelvorlage;
 
 public enum Views {
-	liveSuche, wilkommensscreen, sortiment, warenkorb, kasse
-	
+	liveSuche, 
+	anmeldescreen, 
+	sortiment,
+	wilkommensscreen,
+	warenkorb,
+	kasse	
 }
+
