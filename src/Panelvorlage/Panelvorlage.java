@@ -1,3 +1,4 @@
+
 package Panelvorlage;
 
 import java.awt.BorderLayout;
@@ -37,3 +38,4 @@ public class Panelvorlage extends JPanel {
 		btn.setForeground(Color.BLACK);
 	}
 }
+

@@ -1,3 +1,4 @@
+
 package Panelvorlage;
 
 
@@ -34,7 +35,7 @@ public class MainGui extends JFrame {
 					MainGui frame = new MainGui();
 					frame.setVisible(true);
 					frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
-					frame.setUndecorated(true);
+					//frame.setUndecorated(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -82,6 +83,7 @@ public class MainGui extends JFrame {
 	}
 	
 }
+
 
 
 
