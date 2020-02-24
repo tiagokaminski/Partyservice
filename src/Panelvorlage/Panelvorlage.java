@@ -26,7 +26,7 @@ public class Panelvorlage extends JPanel {
 	private void initGUI() {
 		setBackground(Color.LIGHT_GRAY);
 		setLayout(null);
-		this.setSize(1920, 1022);
+		this.setSize(1920, 1022); 
 	}
 	
 	public void setUeberschrift(String Ueberschrift) {
@@ -37,3 +37,4 @@ public class Panelvorlage extends JPanel {
 		btn.setForeground(Color.BLACK);
 	}
 }
+
