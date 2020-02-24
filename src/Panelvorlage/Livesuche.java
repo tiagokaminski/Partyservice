@@ -67,6 +67,7 @@ public class Livesuche extends Panelvorlage {
 		
 			textField_Adresse.setBounds(103, 38, 199, 20);
 			add(textField_Adresse);
+			textField_Adresse.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 			textField_Adresse.setColumns(10);
 		}
 		{
@@ -82,6 +83,7 @@ public class Livesuche extends Panelvorlage {
 		{
 			textField_Hausnummer = new JTextField();
 			textField_Hausnummer.setBounds(170, 65, 46, 20);
+			textField_Hausnummer.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 			add(textField_Hausnummer);
 			textField_Hausnummer.setColumns(10);
 		}
