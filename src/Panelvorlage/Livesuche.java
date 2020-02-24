@@ -48,7 +48,7 @@ public class Livesuche extends Panelvorlage {
 					buttonNewButtonActionPerformed(e);
 				}
 			});
-			buttonNewButton.setBounds(323, 227, 101, 23);
+			buttonNewButton.setBounds(392, 229, 101, 23);
 			add(buttonNewButton);
 		}
 		{
@@ -65,23 +65,23 @@ public class Livesuche extends Panelvorlage {
 				}
 			});
 		
-			textField_Adresse.setBounds(66, 65, 199, 20);
+			textField_Adresse.setBounds(103, 38, 199, 20);
 			add(textField_Adresse);
 			textField_Adresse.setColumns(10);
 		}
 		{
 			labelNewLabel = new JLabel("Stra\u00DFe:");
-			labelNewLabel.setBounds(10, 68, 46, 14);
+			labelNewLabel.setBounds(47, 41, 46, 14);
 			add(labelNewLabel);
 		}
 		{
 			labelHausnummer = new JLabel("Hausnummer:");
-			labelHausnummer.setBounds(269, 68, 73, 14);
+			labelHausnummer.setBounds(57, 68, 103, 14);
 			add(labelHausnummer);
 		}
 		{
 			textField_Hausnummer = new JTextField();
-			textField_Hausnummer.setBounds(352, 65, 46, 20);
+			textField_Hausnummer.setBounds(170, 65, 46, 20);
 			add(textField_Hausnummer);
 			textField_Hausnummer.setColumns(10);
 		}
@@ -100,10 +100,12 @@ public class Livesuche extends Panelvorlage {
 		}
 		{
 			textField_Fehlermeldung = new JTextField();
+			textField_Fehlermeldung.setForeground(Color.RED);
 			textField_Fehlermeldung.setEditable(false);
 			textField_Fehlermeldung.setBackground(Color.LIGHT_GRAY);
-			textField_Fehlermeldung.setBounds(49, 229, 242, 48);
+			textField_Fehlermeldung.setBounds(49, 229, 316, 48);
 			add(textField_Fehlermeldung);
+			textField_Fehlermeldung.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 			textField_Fehlermeldung.setColumns(10);
 		}
 	}
@@ -112,7 +114,7 @@ public class Livesuche extends Panelvorlage {
 		if (!this.textField_Adresse.getText().equals("") && !this.textField_Hausnummer.getText().equals("")) {
 			maingui.switchTo(v.sortiment);
 		}else if (this.textField_Adresse.getText().equals("") || this.textField_Hausnummer.getText().equals("")) {
-			this.textField_Fehlermeldung.setText("Adresse bzw. Hausnummerfeld darf nicht leer sein!");
+			this.textField_Fehlermeldung.setText("Adress- und Hausnummernfeld dürfen nicht leer sein!");
 		} 
 	}
 	

@@ -35,13 +35,11 @@ public class MainGui extends JFrame {
 					MainGui frame = new MainGui();
 					frame.setVisible(true);
 					frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
-<<<<<<< HEAD
 					frame.setUndecorated(true);
 					frame.setExtendedState(MAXIMIZED_BOTH);
 					frame.setResizable(true);
-=======
+
 					//frame.setUndecorated(true);
->>>>>>> 3d790f4dce17e76b248d6c2b593b1a870af79148
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
