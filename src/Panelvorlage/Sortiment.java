@@ -24,7 +24,10 @@ import javax.swing.UIManager;
 import java.awt.Checkbox;
 import java.awt.Color;
 import java.awt.font.TextAttribute;
+import java.nio.file.DirectoryStream.Filter;
+
 import javax.swing.JSeparator;
+import javax.swing.JTextPane;
 
 public class Sortiment extends Panelvorlage {
 	private JButton buttonZumWarenkorb;
@@ -47,7 +50,6 @@ public class Sortiment extends Panelvorlage {
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private JButton buttonFilterAnwenden;
 	private JPanel panel;
-	FilterDao filterDao = new FilterDao();
 	String alkohol = null;
 	String snacks = null;
 	String softdrinks = null;
@@ -63,6 +65,11 @@ public class Sortiment extends Panelvorlage {
 	private JSeparator separator_4;
 	private JSeparator separator_5;
 	private JRadioButton rdbtnextras;
+	private int unterkategorie;
+	private int kategorie;
+	private FilterDao filterDao = new FilterDao();
+	private JTextPane textPaneTest;
+	
 
 	/**
 	 * Create the panel.
@@ -289,11 +296,6 @@ public class Sortiment extends Panelvorlage {
 				panel.add(separator_5);
 			}
 		{
-			textFieldTest = new JTextField();
-			textFieldTest.setText("Test");
-			textFieldTest.setBounds(21, 62, 516, 334);
-			add(textFieldTest);
-			textFieldTest.setColumns(10);
 		}
 		}
 		{
@@ -301,7 +303,12 @@ public class Sortiment extends Panelvorlage {
 			buttonFilterAnwenden.setBackground(Color.WHITE);
 			buttonFilterAnwenden.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					buttonFilterAnwendenActionPerformed(arg0);
+					try {
+						buttonFilterAnwendenActionPerformed(arg0);
+					} catch (ClassNotFoundException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 			});
 			buttonFilterAnwenden.setFont(new Font("Tahoma", Font.PLAIN, 22));
@@ -313,79 +320,93 @@ public class Sortiment extends Panelvorlage {
 		maingui.switchTo(v.warenkorb);
 	}
 
-	protected void buttonFilterAnwendenActionPerformed(ActionEvent arg0) {
-		
+	protected void buttonFilterAnwendenActionPerformed(ActionEvent arg0) throws ClassNotFoundException {
 		if(radioButtonExtras.isSelected()) {
-			
+			unterkategorie = 1;
+			filterDao.unterkategorieAusgewaehlt(1);
 		}
 
 		if(radioButtonVodka.isSelected()) {
-			
+			unterkategorie = 2;
+			filterDao.unterkategorieAusgewaehlt(2);
+			textPaneTest.setText(filterDao.getProduktListe());			
 		}
 
 		if(radioButtonRum.isSelected()) {
-			
+			unterkategorie = 3;
+			filterDao.unterkategorieAusgewaehlt(3);
 		}
 
 		if(radioButtonKraeuterlikoer.isSelected()) {
-			
+			unterkategorie = 4;
+			filterDao.unterkategorieAusgewaehlt(4);
 		}
 
 		if(radioButtonLikoer.isSelected()) {
-			
+			unterkategorie = 5;
+			filterDao.unterkategorieAusgewaehlt(5);
 		}
 
 		if(radioButtonWhiskey.isSelected()) {
-			
+			unterkategorie = 6;
+			filterDao.unterkategorieAusgewaehlt(6);
 		}
 
 		if(radioButtonSoftdrinks.isSelected()) {
-			
+			unterkategorie = 7;
+			filterDao.unterkategorieAusgewaehlt(7);
 		}
 
 		if(radioButtonSaefte.isSelected()) {
-			
+			unterkategorie = 8;
+			filterDao.unterkategorieAusgewaehlt(8);
 		}
 
 		if(radioButtonSonstiges.isSelected()) {
-			
+			unterkategorie = 9;
+			filterDao.unterkategorieAusgewaehlt(9);
 		}
 
 		if(radioButtonKnabberzeug.isSelected()) {
-			
+			unterkategorie = 10;
+			filterDao.unterkategorieAusgewaehlt(10);
 		}
 
 		if(radioButtonPringles.isSelected()) {
-			
+			unterkategorie = 11;
+			filterDao.unterkategorieAusgewaehlt(11);
 		}
 
 		if(radioButtonLays.isSelected()) {
-			
+			unterkategorie = 12;
+			filterDao.unterkategorieAusgewaehlt(12);
 		}
 
 		if(radioButtonPombaer.isSelected()) {
-			
+			unterkategorie = 13;
+			filterDao.unterkategorieAusgewaehlt(13);
 		}
 
 		if(radioButtonSuesskram.isSelected()) {
-			
-		}
-		
-		if(radioButtonAlkohol.isSelected()) {
-			
-		}
-		
-		if (radioButtonGetraenke.isSelected()) {
-			
+			unterkategorie = 14;
+			filterDao.unterkategorieAusgewaehlt(14);
 		}
 		
 		if (rdbtnextras.isSelected()) {
-			
+			kategorie = 1;
 		}
 		
 		if (rdbtnsnacks.isSelected()) {
-			
+			kategorie = 4;
 		}
-		//textFieldTest.setText(filterDao.);
+		
+		if (radioButtonAlkohol.isSelected()) {
+			kategorie = 2;
+		}
+		
+		if (radioButtonGetraenke.isSelected()) {
+			kategorie = 3;
+		}
+
 	}
 }

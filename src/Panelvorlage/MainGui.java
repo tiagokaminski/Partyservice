@@ -35,6 +35,8 @@ public class MainGui extends JFrame {
 					frame.setVisible(true);
 					frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
 					frame.setUndecorated(true);
+					frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+					frame.setResizable(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -52,7 +54,7 @@ public class MainGui extends JFrame {
 		setContentPane(wilkommensscren);
 		
 		
-		switchToWithDelay(Views.anmeldescreen, 4000);
+		switchToWithDelay(Views.anmeldescreen, 1000);
 	
 		
 		panels.put(Views.wilkommensscreen, this.wilkommensscren);
