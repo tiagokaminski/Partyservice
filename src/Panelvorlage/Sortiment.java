@@ -149,7 +149,6 @@ public class Sortiment extends Panelvorlage {
 			}
 			{
 				rdbtnextras = new JRadioButton("<html><u>Extras</u></html>");
-				buttonGroup.add(rdbtnextras);
 				rdbtnextras.setFont(new Font("Tahoma", Font.PLAIN, 26));
 				rdbtnextras.setBackground(Color.WHITE);
 				rdbtnextras.setBounds(6, 598, 201, 35);

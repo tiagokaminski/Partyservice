@@ -22,7 +22,7 @@ public class FilterDao {
 	public FilterDao() {
 		try {
 			Class.forName("org.sqlite.JDBC");
-			datei= "Produkte.db3";
+			//datei= "Produkte.db3";
 			url= "jdbc:sqlite:" + datei;
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -30,7 +30,10 @@ public class FilterDao {
 		}
 	}
 
-	public ArrayList<Produkt> unterkategorieAusgewaehlt(int kategorie) {		
+	public ArrayList<Produkt> unterkategorieAusgewaehlt(int kategorie) throws ClassNotFoundException {		
+		Class.forName("org.sqlite.JDBC");
+		datei= "Produkte.db3";
+		url= "jdbc:sqlite:" + datei;
 		try {
 			conn = DriverManager.getConnection(url);
 			String sql = 	"Select ID, Name, Preis, Kategorie_ID, Unterkategorie_ID FROM Produkt\r\n" + 
