@@ -66,6 +66,7 @@ public class Sortiment extends Panelvorlage {
 	private JSeparator separator_5;
 	private JRadioButton rdbtnextras;
 	private int unterkategorie;
+	private int oberKategorie;
 	private int kategorie;
 	private FilterDao filterDao = new FilterDao();
 	private JTextPane textPaneTest;
@@ -327,8 +328,7 @@ public class Sortiment extends Panelvorlage {
 
 		if(radioButtonVodka.isSelected()) {
 			unterkategorie = 2;
-			filterDao.unterkategorieAusgewaehlt(2);
-			textPaneTest.setText(filterDao.getProduktListe());			
+			filterDao.unterkategorieAusgewaehlt(2);		
 		}
 
 		if(radioButtonRum.isSelected()) {
@@ -392,19 +392,23 @@ public class Sortiment extends Panelvorlage {
 		}
 		
 		if (rdbtnextras.isSelected()) {
-			kategorie = 1;
+			oberKategorie = 1;
+			filterDao.oberkategorieAusgewaehlt(1);
 		}
 		
 		if (rdbtnsnacks.isSelected()) {
-			kategorie = 4;
+			oberKategorie = 4;
+			filterDao.oberkategorieAusgewaehlt(4);
 		}
 		
 		if (radioButtonAlkohol.isSelected()) {
-			kategorie = 2;
+			oberKategorie = 2;
+			filterDao.oberkategorieAusgewaehlt(2);
 		}
 		
 		if (radioButtonGetraenke.isSelected()) {
-			kategorie = 3;
+			oberKategorie = 3;
+			filterDao.oberkategorieAusgewaehlt(3);
 		}
 
 	}

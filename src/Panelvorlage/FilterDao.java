@@ -36,14 +36,12 @@ public class FilterDao {
 		url= "jdbc:sqlite:" + datei;
 		try {
 			conn = DriverManager.getConnection(url);
-			String sql = 	"Select ID, Name, Preis, Kategorie_ID, Unterkategorie_ID FROM Produkt\r\n" + 
-							"where Unterkategorie_ID = 1";
+			String sql = 	"Select ID, Name, Preis, Kategorie_ID, Unterkategorie_ID FROM Produkt where Unterkategorie_ID = ?";
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setLong(1, kategorie);
 			ResultSet resultSet = statement.executeQuery();
 			while (resultSet.next()) {
-				produkt = new Produkt(resultSet.getInt("id"), resultSet.getString("name"),
-						resultSet.getInt("preis"), resultSet.getInt("kategorie"), resultSet.getInt("unterkategorie"));
+				produkt = new Produkt(resultSet.getInt("ID"), resultSet.getString("Name"), resultSet.getInt("Preis"), resultSet.getInt("Kategorie_ID"), resultSet.getInt("Unterkategorie_ID"));
 				produktListe.add(produkt);
 			}
 		} catch (SQLException e) {
@@ -54,24 +52,29 @@ public class FilterDao {
 		return produktListe;
 	}
 	
-	/*public void unterkategorieAusgewaehlt(String alkohol) {
+	public ArrayList<Produkt> oberkategorieAusgewaehlt(int oberKategorie) throws ClassNotFoundException {
+		Class.forName("org.sqlite.JDBC");
+		datei= "Produkte.db3";
+		url= "jdbc:sqlite:" + datei;
 		try {
 			conn = DriverManager.getConnection(url);
 
-			String sql = 	"Select Kategorie_ID FROM Produkt\r\n" + 
-							"where Kategorie_ID = 1";
+			String sql = 	"Select ID, Name, Preis, Kategorie_ID, Unterkategorie_ID FROM Produkt\r\n" + 
+							"where Kategorie_ID = ?";
 			PreparedStatement statement = conn.prepareStatement(sql);
-			statement.setString(1, alkohol);
+			statement.setLong(1, oberKategorie);
 			ResultSet resultSet = statement.executeQuery();
-			if (resultSet.next()) {
-				
+			while (resultSet.next()) {
+				produkt = new Produkt(resultSet.getInt("ID"), resultSet.getString("Name"), resultSet.getInt("Preis"), resultSet.getInt("Kategorie_ID"), resultSet.getInt("Unterkategorie_ID"));
+				produktListe.add(produkt);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			
 		}
-	}*/
+		return produktListe;
+	}
 	
 	public String getProduktListe() {
 		produktListeString = produktListe.toString();
