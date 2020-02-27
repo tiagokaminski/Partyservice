@@ -1,3 +1,4 @@
+
 package Panelvorlage;
 
 
@@ -57,6 +58,10 @@ public class MainGui extends JFrame {
 					frame.setVisible(true);
 					frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
 					//frame.setUndecorated(true);
+					frame.setExtendedState(MAXIMIZED_BOTH);
+					frame.setResizable(true);
+
+					//frame.setUndecorated(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -106,7 +111,7 @@ public class MainGui extends JFrame {
 		setBounds(100, 100, 960, 540);
 		
 		
-		switchToWithDelay(Views.anmeldescreen, 4000);
+		switchToWithDelay(Views.anmeldescreen, 1000);
 	
 		
 		panels.put(Views.wilkommensscreen, this.wilkommensscren);
@@ -123,6 +128,7 @@ public class MainGui extends JFrame {
 	 * man kann ein Timer für den Switch einstellen und zu einem anderen pannel switchen
 	 * @param v
 	 * @param zeitTimer
+	 * 
 	 */
 	public void switchToWithDelay(Views v, int zeitTimer) {
 		t=new Timer(zeitTimer, e ->  {
@@ -142,6 +148,7 @@ public class MainGui extends JFrame {
 
 	
 }
+
 
 
 

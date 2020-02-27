@@ -25,12 +25,15 @@ public class Anmeldescreen extends Panelvorlage {
 		
 	}
 	private void initGUI() {
-			 
-			try {
-			
 			JButton buttonNewButton = new JButton("Gast");
 			buttonNewButton.setBorder(BorderFactory.createEmptyBorder());
 			buttonNewButton.setContentAreaFilled(false);
+			try {
+				buttonNewButton.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/button.png"))));
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			buttonNewButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					buttonNewButtonActionPerformed(e);
@@ -39,11 +42,7 @@ public class Anmeldescreen extends Panelvorlage {
 			setLayout(null);
 			buttonNewButton.setBounds(1200, 30, 200, 25);
 			add(buttonNewButton);
-			} catch (IOException e1) {
-				System.out.println("Bild nicht gefunden, oder andere Fehler");
-				
-				e1.printStackTrace();
-			}
+			
 	}
 	protected void buttonNewButtonActionPerformed(ActionEvent e) {
 		maingui.switchTo(v.liveSuche);

@@ -1,3 +1,4 @@
+
 package Panelvorlage;
 
 import java.awt.BorderLayout;
@@ -32,7 +33,15 @@ public class Panelvorlage extends JPanel {
 	 * Create the panel.
 	 */
 	public Panelvorlage(MainGui maingui) {
+		this.maingui = maingui;
+		initGUI();
+	}
+	private void initGUI() {
+		setBackground(Color.LIGHT_GRAY);
+		setLayout(null);
 		setOpaque(false);
+
+		this.setSize(1920, 1022); 
 	}
 	
 	
@@ -79,3 +88,4 @@ public class Panelvorlage extends JPanel {
 
 	}
 }
+
