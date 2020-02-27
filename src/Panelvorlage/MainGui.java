@@ -2,6 +2,7 @@ package Panelvorlage;
 
 
 import java.awt.EventQueue;
+import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Label;
 import java.awt.Toolkit;
@@ -40,7 +41,7 @@ public class MainGui extends JFrame {
 	private Warenkorb warenkorb = new Warenkorb(this);
 	private Kasse kasse = new Kasse(this);
 	private HashMap<Views, Panelvorlage> panels = new HashMap<>();
-	private JLabel label = new JLabel();
+	
 	private Timer t;
 
 
@@ -55,7 +56,7 @@ public class MainGui extends JFrame {
 					MainGui frame = new MainGui();
 					frame.setVisible(true);
 					frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
-					frame.setUndecorated(true);
+					//frame.setUndecorated(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -71,10 +72,18 @@ public class MainGui extends JFrame {
 	 */
 	
 	public MainGui() throws IOException {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Cedric\\Documents\\Eclipse-Schule\\RP-Project-2020\\PartyServiceProjekt\\bin\\Panelvorlage\\logo_Smileyx32px.png"));
-		setTitle("Partyservice\r\n");
+		try {
+			BufferedImage img=ImageIO.read(getClass().getResource("/logo_Smileyx32px.png"));
+			setIconImage(img);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		setTitle("Partyservice");
 		setResizable(false);
-		this.setContentPane(new JLabel(new ImageIcon("C:\\Users\\Cedric\\Documents\\Eclipse-Schule\\RP-Project-2020\\PartyServiceProjekt\\projektPartyServiceHintergrung.png")));
+		//this.setContentPane(new JLabel(new ImageIcon("resource/projektPartyServiceHintergrung.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1500, 900);
 		setUndecorated(true);
@@ -85,22 +94,16 @@ public class MainGui extends JFrame {
 		//panels.put(Views.profil, this.profil);
 		//panels.put(Views.impressum, this.impressum);
 		
-		label = new JLabel("");
-		label.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				System.exit(0);
-			}
-		});
+		
+		
 		//Image img = new ImageIcon(this.getClass().getResource("closeButton.png")).getImage();
-		label.setIcon(new ImageIcon("C:\\Users\\Cedric\\Documents\\Eclipse-Schule\\RP-Project-2020\\PartyServiceProjekt\\src\\Panelvorlage\\closeButtonx46.png"));
-		label.setBounds(1430, 15, 50, 50);
-		this.getContentPane().add(label);
+		
+		
+		
 		this.setLocationRelativeTo(null);
 		
 		
 		setBounds(100, 100, 960, 540);
-		setContentPane(wilkommensscren);
 		
 		
 		switchToWithDelay(Views.anmeldescreen, 4000);
@@ -112,6 +115,8 @@ public class MainGui extends JFrame {
 		panels.put(Views.sortiment, this.sortiment);
 		panels.put(Views.warenkorb, this.warenkorb);
 		panels.put(Views.kasse, this.kasse);
+		switchTo(Views.wilkommensscreen);
+
 	}
 
 	/**
@@ -129,8 +134,12 @@ public class MainGui extends JFrame {
 	
 	public void switchTo(Views v) {
 		setContentPane(this.panels.get(v));
+		System.out.println(getContentPane().getGraphics());
+		getContentPane().repaint();
 		SwingUtilities.updateComponentTreeUI(this);
 	}
+	
+
 	
 }
 
