@@ -138,6 +138,7 @@ public class Livesuche extends Panelvorlage {
 	protected void listValueChanged(ListSelectionEvent e) {
 		String a= this.list.getSelectedValue().toString();
 		this.textField_Adresse.setText(a);
+		
 	}
 }
 

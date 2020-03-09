@@ -10,23 +10,36 @@ import javax.swing.AbstractListModel;
 import javax.swing.JTree;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JCheckBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextField;
 import javax.swing.tree.DefaultTreeModel;
+
+import model.Produkt;
+
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
 import javax.swing.ButtonGroup;
 import java.awt.Font;
+
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.UIManager;
 
 import java.awt.Checkbox;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.EventQueue;
 import java.awt.font.TextAttribute;
+import java.util.ArrayList;
+
 import javax.swing.JSeparator;
 
-public class Sortiment extends Panelvorlage {
+public class Sortiment extends Panelvorlage 
+{
 	private JButton buttonZumWarenkorb;
 	private JList list;
 	private JButton buttonRefresh;
@@ -58,14 +71,28 @@ public class Sortiment extends Panelvorlage {
 	private JSeparator separator_5;
 	private JRadioButton rdbtnextras;
 
+	private JPanel contentPane;
+	private JScrollPane scrollPane;
+	SortimentDao dao = new SortimentDao();
+	
+
+	
+
 	/**
 	 * Create the panel.
+	 * @throws ClassNotFoundException 
 	 */
-	public Sortiment(MainGui maingui) {
+	public Sortiment(MainGui maingui)  {
 		super(maingui);
+		//this.maingui = maingui;
 		initGUI();
+		
+		
+		
+		
+
 	}
-	private void initGUI() {
+	private void initGUI()  {
 		setLayout(null);
 		{
 			buttonZumWarenkorb = new JButton("weiter zum Warenkorb");
@@ -80,14 +107,14 @@ public class Sortiment extends Panelvorlage {
 			add(buttonZumWarenkorb);
 		}
 		{
-			
+
 		}
 		{
 			list = new JList();
 			list.setBounds(21, 21, 1, 1);
 			add(list);
 		}
-		
+
 		{
 			panel = new JPanel();
 			panel.setBackground(Color.WHITE);
@@ -97,204 +124,215 @@ public class Sortiment extends Panelvorlage {
 			panel.setBounds(1697, 11, 213, 672);
 			add(panel);
 			panel.setLayout(null);
-			
-			{
-				
 
-				}
-				{
-					separator = new JSeparator();
-					separator.setForeground(Color.LIGHT_GRAY);
-					separator.setBounds(0, 236, 225, 2);
-					panel.add(separator);
-				}
-				{
-					separator_1 = new JSeparator();
-					separator_1.setForeground(Color.LIGHT_GRAY);
-					separator_1.setBounds(0, 238, 225, 2);
-					panel.add(separator_1);
-				}
-				{
-					separator_2 = new JSeparator();
-					separator_2.setForeground(Color.LIGHT_GRAY);
-					separator_2.setBounds(0, 381, 225, 2);
-					panel.add(separator_2);
-				}
-				{
-					separator_3 = new JSeparator();
-					separator_3.setForeground(Color.LIGHT_GRAY);
-					separator_3.setBounds(0, 383, 225, 2);
-					panel.add(separator_3);
-				}
-				radioButtonVodka = new JRadioButton("Vodka");
-				buttonGroup.add(radioButtonVodka);
-				radioButtonVodka.setBackground(Color.WHITE);
-				radioButtonVodka.setBounds(6, 67, 201, 35);
-				panel.add(radioButtonVodka);
-				radioButtonVodka.setFont(new Font("Tahoma", Font.PLAIN, 22));
-				
+			{
+
+
 			}
 			{
-				rdbtnextras = new JRadioButton("<html><u>Extras</u></html>");
-				rdbtnextras.setFont(new Font("Tahoma", Font.PLAIN, 26));
-				rdbtnextras.setBackground(Color.WHITE);
-				rdbtnextras.setBounds(6, 598, 201, 35);
-				panel.add(rdbtnextras);
+				separator = new JSeparator();
+				separator.setForeground(Color.LIGHT_GRAY);
+				separator.setBounds(0, 236, 225, 2);
+				panel.add(separator);
 			}
 			{
-				radioButtonRum = new JRadioButton("Rum");
-				buttonGroup.add(radioButtonRum);
-				radioButtonRum.setBackground(Color.WHITE);
-				radioButtonRum.setBounds(6, 99, 201, 35);
-				panel.add(radioButtonRum);
-				radioButtonRum.setFont(new Font("Tahoma", Font.PLAIN, 22));
+				separator_1 = new JSeparator();
+				separator_1.setForeground(Color.LIGHT_GRAY);
+				separator_1.setBounds(0, 238, 225, 2);
+				panel.add(separator_1);
 			}
 			{
-				radioButtonKraeuterlikoer = new JRadioButton("Kr\u00E4uterlik\u00F6r");
-				buttonGroup.add(radioButtonKraeuterlikoer);
-				radioButtonKraeuterlikoer.setBackground(Color.WHITE);
-				radioButtonKraeuterlikoer.setBounds(6, 131, 201, 35);
-				panel.add(radioButtonKraeuterlikoer);
-				radioButtonKraeuterlikoer.setFont(new Font("Tahoma", Font.PLAIN, 22));
+				separator_2 = new JSeparator();
+				separator_2.setForeground(Color.LIGHT_GRAY);
+				separator_2.setBounds(0, 381, 225, 2);
+				panel.add(separator_2);
 			}
 			{
-				radioButtonLikoer = new JRadioButton("Lik\u00F6r");
-				buttonGroup.add(radioButtonLikoer);
-				radioButtonLikoer.setBackground(Color.WHITE);
-				radioButtonLikoer.setBounds(6, 162, 201, 35);
-				panel.add(radioButtonLikoer);
-				radioButtonLikoer.setFont(new Font("Tahoma", Font.PLAIN, 22));
+				separator_3 = new JSeparator();
+				separator_3.setForeground(Color.LIGHT_GRAY);
+				separator_3.setBounds(0, 383, 225, 2);
+				panel.add(separator_3);
 			}
-			{
-				radioButtonWhiskey = new JRadioButton("Whiskey");
-				buttonGroup.add(radioButtonWhiskey);
-				radioButtonWhiskey.setBackground(Color.WHITE);
-				radioButtonWhiskey.setBounds(6, 194, 201, 35);
-				panel.add(radioButtonWhiskey);
-				radioButtonWhiskey.setFont(new Font("Tahoma", Font.PLAIN, 22));
-			}
-			{
-				rdbtnsnacks = new JRadioButton("<html><u>Snacks</u></html>");
-				buttonGroup.add(rdbtnsnacks);
-				rdbtnsnacks.setFont(new Font("Tahoma", Font.PLAIN, 26));
-				rdbtnsnacks.setBackground(Color.WHITE);
-				rdbtnsnacks.setBounds(6, 392, 201, 35);
-				panel.add(rdbtnsnacks);
-			}
-			{
-				radioButtonKnabberzeug = new JRadioButton("Knabberzeug");
-				radioButtonKnabberzeug.setBackground(Color.WHITE);
-				radioButtonKnabberzeug.setBounds(6, 422, 201, 35);
-				panel.add(radioButtonKnabberzeug);
-				radioButtonKnabberzeug.setFont(new Font("Tahoma", Font.PLAIN, 22));
-				buttonGroup.add(radioButtonKnabberzeug);
-			}
-			{
-				radioButtonPringles = new JRadioButton("Pringles");
-				radioButtonPringles.setBackground(Color.WHITE);
-				radioButtonPringles.setBounds(6, 453, 201, 35);
-				panel.add(radioButtonPringles);
-				radioButtonPringles.setFont(new Font("Tahoma", Font.PLAIN, 22));
-				buttonGroup.add(radioButtonPringles);
-			}
-			{
-				radioButtonLays = new JRadioButton("Lays");
-				radioButtonLays.setBackground(Color.WHITE);
-				radioButtonLays.setBounds(6, 483, 201, 35);
-				panel.add(radioButtonLays);
-				radioButtonLays.setFont(new Font("Tahoma", Font.PLAIN, 22));
-				buttonGroup.add(radioButtonLays);
-			}
-			{
-				radioButtonPombaer = new JRadioButton("Pomb\u00E4r");
-				radioButtonPombaer.setBackground(Color.WHITE);
-				radioButtonPombaer.setBounds(6, 515, 201, 35);
-				panel.add(radioButtonPombaer);
-				radioButtonPombaer.setFont(new Font("Tahoma", Font.PLAIN, 22));
-				buttonGroup.add(radioButtonPombaer);
-			}
-			{
-				radioButtonSuesskram = new JRadioButton("S\u00FC\u00DFkram");
-				radioButtonSuesskram.setBackground(Color.WHITE);
-				radioButtonSuesskram.setBounds(6, 547, 201, 35);
-				panel.add(radioButtonSuesskram);
-				radioButtonSuesskram.setFont(new Font("Tahoma", Font.PLAIN, 22));
-				buttonGroup.add(radioButtonSuesskram);
-			}
-			{
-				radioButtonSoftdrinks = new JRadioButton("Softdrinks");
-				radioButtonSoftdrinks.setBackground(Color.WHITE);
-				radioButtonSoftdrinks.setBounds(6, 274, 201, 35);
-				panel.add(radioButtonSoftdrinks);
-				radioButtonSoftdrinks.setFont(new Font("Tahoma", Font.PLAIN, 22));
-				buttonGroup.add(radioButtonSoftdrinks);
-			}
-			{
-				radioButtonSaefte = new JRadioButton("S\u00E4fte");
-				radioButtonSaefte.setBackground(Color.WHITE);
-				radioButtonSaefte.setBounds(6, 306, 201, 35);
-				panel.add(radioButtonSaefte);
-				radioButtonSaefte.setFont(new Font("Tahoma", Font.PLAIN, 22));
-				buttonGroup.add(radioButtonSaefte);
-			}
-			{
-				radioButtonSonstiges = new JRadioButton("Sonstiges");
-				radioButtonSonstiges.setBackground(Color.WHITE);
-				radioButtonSonstiges.setBounds(6, 338, 201, 35);
-				panel.add(radioButtonSonstiges);
-				radioButtonSonstiges.setFont(new Font("Tahoma", Font.PLAIN, 22));
-				buttonGroup.add(radioButtonSonstiges);
-			}
-			{
-				radioButtonExtras = new JRadioButton("Extras");
-				radioButtonExtras.setBackground(Color.WHITE);
-				radioButtonExtras.setBounds(6, 632, 201, 35);
-				panel.add(radioButtonExtras);
-				radioButtonExtras.setFont(new Font("Tahoma", Font.PLAIN, 22));
-				buttonGroup.add(radioButtonExtras);
-			}
-			{
-				radioButtonAlkohol = new JRadioButton("<html><u>Alkohol</u></html>");
-				buttonGroup.add(radioButtonAlkohol);
-				radioButtonAlkohol.setFont(new Font("Tahoma", Font.PLAIN, 26));
-				radioButtonAlkohol.setBackground(Color.WHITE);
-				radioButtonAlkohol.setBounds(6, 35, 201, 35);
-				panel.add(radioButtonAlkohol);
-			}
-			{
-				radioButtonGetraenke = new JRadioButton("<html><u>Getr\u00E4nke</u></html>");
-				buttonGroup.add(radioButtonGetraenke);
-				radioButtonGetraenke.setFont(new Font("Tahoma", Font.PLAIN, 26));
-				radioButtonGetraenke.setBackground(Color.WHITE);
-				radioButtonGetraenke.setBounds(6, 243, 201, 35);
-				panel.add(radioButtonGetraenke);
-			}
-			{
-				separator_4 = new JSeparator();
-				separator_4.setForeground(Color.LIGHT_GRAY);
-				separator_4.setBounds(0, 589, 225, 2);
-				panel.add(separator_4);
-			}
-			{
-				separator_5 = new JSeparator();
-				separator_5.setForeground(Color.LIGHT_GRAY);
-				separator_5.setBounds(0, 591, 225, 2);
-				panel.add(separator_5);
-			}
+			radioButtonVodka = new JRadioButton("Vodka");
+			buttonGroup.add(radioButtonVodka);
+			radioButtonVodka.setBackground(Color.WHITE);
+			radioButtonVodka.setBounds(6, 67, 201, 35);
+			panel.add(radioButtonVodka);
+			radioButtonVodka.setFont(new Font("Tahoma", Font.PLAIN, 22));
+
 		}
 		{
-			buttonFilterAnwenden = new JButton("Filter Anwenden");
-			buttonFilterAnwenden.setBackground(Color.WHITE);
-			buttonFilterAnwenden.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent arg0) {
-					buttonFilterAnwendenActionPerformed(arg0);
-				}
-			});
-			buttonFilterAnwenden.setFont(new Font("Tahoma", Font.PLAIN, 22));
-			buttonFilterAnwenden.setBounds(1697, 690, 214, 35);
-			add(buttonFilterAnwenden);
+			rdbtnextras = new JRadioButton("<html><u>Extras</u></html>");
+			rdbtnextras.setFont(new Font("Tahoma", Font.PLAIN, 26));
+			rdbtnextras.setBackground(Color.WHITE);
+			rdbtnextras.setBounds(6, 598, 201, 35);
+			panel.add(rdbtnextras);
 		}
-	
+		{
+			radioButtonRum = new JRadioButton("Rum");
+			buttonGroup.add(radioButtonRum);
+			radioButtonRum.setBackground(Color.WHITE);
+			radioButtonRum.setBounds(6, 99, 201, 35);
+			panel.add(radioButtonRum);
+			radioButtonRum.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		}
+		{
+			radioButtonKraeuterlikoer = new JRadioButton("Kr\u00E4uterlik\u00F6r");
+			buttonGroup.add(radioButtonKraeuterlikoer);
+			radioButtonKraeuterlikoer.setBackground(Color.WHITE);
+			radioButtonKraeuterlikoer.setBounds(6, 131, 201, 35);
+			panel.add(radioButtonKraeuterlikoer);
+			radioButtonKraeuterlikoer.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		}
+		{
+			radioButtonLikoer = new JRadioButton("Lik\u00F6r");
+			buttonGroup.add(radioButtonLikoer);
+			radioButtonLikoer.setBackground(Color.WHITE);
+			radioButtonLikoer.setBounds(6, 162, 201, 35);
+			panel.add(radioButtonLikoer);
+			radioButtonLikoer.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		}
+		{
+			radioButtonWhiskey = new JRadioButton("Whiskey");
+			buttonGroup.add(radioButtonWhiskey);
+			radioButtonWhiskey.setBackground(Color.WHITE);
+			radioButtonWhiskey.setBounds(6, 194, 201, 35);
+			panel.add(radioButtonWhiskey);
+			radioButtonWhiskey.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		}
+		{
+			rdbtnsnacks = new JRadioButton("<html><u>Snacks</u></html>");
+			buttonGroup.add(rdbtnsnacks);
+			rdbtnsnacks.setFont(new Font("Tahoma", Font.PLAIN, 26));
+			rdbtnsnacks.setBackground(Color.WHITE);
+			rdbtnsnacks.setBounds(6, 392, 201, 35);
+			panel.add(rdbtnsnacks);
+		}
+		{
+			radioButtonKnabberzeug = new JRadioButton("Knabberzeug");
+			radioButtonKnabberzeug.setBackground(Color.WHITE);
+			radioButtonKnabberzeug.setBounds(6, 422, 201, 35);
+			panel.add(radioButtonKnabberzeug);
+			radioButtonKnabberzeug.setFont(new Font("Tahoma", Font.PLAIN, 22));
+			buttonGroup.add(radioButtonKnabberzeug);
+		}
+		{
+			radioButtonPringles = new JRadioButton("Pringles");
+			radioButtonPringles.setBackground(Color.WHITE);
+			radioButtonPringles.setBounds(6, 453, 201, 35);
+			panel.add(radioButtonPringles);
+			radioButtonPringles.setFont(new Font("Tahoma", Font.PLAIN, 22));
+			buttonGroup.add(radioButtonPringles);
+		}
+		{
+			radioButtonLays = new JRadioButton("Lays");
+			radioButtonLays.setBackground(Color.WHITE);
+			radioButtonLays.setBounds(6, 483, 201, 35);
+			panel.add(radioButtonLays);
+			radioButtonLays.setFont(new Font("Tahoma", Font.PLAIN, 22));
+			buttonGroup.add(radioButtonLays);
+		}
+		{
+			radioButtonPombaer = new JRadioButton("Pomb\u00E4r");
+			radioButtonPombaer.setBackground(Color.WHITE);
+			radioButtonPombaer.setBounds(6, 515, 201, 35);
+			panel.add(radioButtonPombaer);
+			radioButtonPombaer.setFont(new Font("Tahoma", Font.PLAIN, 22));
+			buttonGroup.add(radioButtonPombaer);
+		}
+		{
+			radioButtonSuesskram = new JRadioButton("S\u00FC\u00DFkram");
+			radioButtonSuesskram.setBackground(Color.WHITE);
+			radioButtonSuesskram.setBounds(6, 547, 201, 35);
+			panel.add(radioButtonSuesskram);
+			radioButtonSuesskram.setFont(new Font("Tahoma", Font.PLAIN, 22));
+			buttonGroup.add(radioButtonSuesskram);
+		}
+		{
+			radioButtonSoftdrinks = new JRadioButton("Softdrinks");
+			radioButtonSoftdrinks.setBackground(Color.WHITE);
+			radioButtonSoftdrinks.setBounds(6, 274, 201, 35);
+			panel.add(radioButtonSoftdrinks);
+			radioButtonSoftdrinks.setFont(new Font("Tahoma", Font.PLAIN, 22));
+			buttonGroup.add(radioButtonSoftdrinks);
+		}
+		{
+			radioButtonSaefte = new JRadioButton("S\u00E4fte");
+			radioButtonSaefte.setBackground(Color.WHITE);
+			radioButtonSaefte.setBounds(6, 306, 201, 35);
+			panel.add(radioButtonSaefte);
+			radioButtonSaefte.setFont(new Font("Tahoma", Font.PLAIN, 22));
+			buttonGroup.add(radioButtonSaefte);
+		}
+		{
+			radioButtonSonstiges = new JRadioButton("Sonstiges");
+			radioButtonSonstiges.setBackground(Color.WHITE);
+			radioButtonSonstiges.setBounds(6, 338, 201, 35);
+			panel.add(radioButtonSonstiges);
+			radioButtonSonstiges.setFont(new Font("Tahoma", Font.PLAIN, 22));
+			buttonGroup.add(radioButtonSonstiges);
+		}
+		{
+			radioButtonExtras = new JRadioButton("Extras");
+			radioButtonExtras.setBackground(Color.WHITE);
+			radioButtonExtras.setBounds(6, 632, 201, 35);
+			panel.add(radioButtonExtras);
+			radioButtonExtras.setFont(new Font("Tahoma", Font.PLAIN, 22));
+			buttonGroup.add(radioButtonExtras);
+		}
+		{
+			radioButtonAlkohol = new JRadioButton("<html><u>Alkohol</u></html>");
+			buttonGroup.add(radioButtonAlkohol);
+			radioButtonAlkohol.setFont(new Font("Tahoma", Font.PLAIN, 26));
+			radioButtonAlkohol.setBackground(Color.WHITE);
+			radioButtonAlkohol.setBounds(6, 35, 201, 35);
+			panel.add(radioButtonAlkohol);
+		}
+		{
+			radioButtonGetraenke = new JRadioButton("<html><u>Getr\u00E4nke</u></html>");
+			buttonGroup.add(radioButtonGetraenke);
+			radioButtonGetraenke.setFont(new Font("Tahoma", Font.PLAIN, 26));
+			radioButtonGetraenke.setBackground(Color.WHITE);
+			radioButtonGetraenke.setBounds(6, 243, 201, 35);
+			panel.add(radioButtonGetraenke);
+		}
+		{
+			separator_4 = new JSeparator();
+			separator_4.setForeground(Color.LIGHT_GRAY);
+			separator_4.setBounds(0, 589, 225, 2);
+			panel.add(separator_4);
+		}
+		{
+			separator_5 = new JSeparator();
+			separator_5.setForeground(Color.LIGHT_GRAY);
+			separator_5.setBounds(0, 591, 225, 2);
+			panel.add(separator_5);
+		}
+
+
+		
+		
+
+	}
+	{
+		buttonFilterAnwenden = new JButton("Filter Anwenden");
+		buttonFilterAnwenden.setBackground(Color.WHITE);
+		buttonFilterAnwenden.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				buttonFilterAnwendenActionPerformed(arg0);
+			}
+		});
+		buttonFilterAnwenden.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		buttonFilterAnwenden.setBounds(1697, 690, 214, 35);
+		add(buttonFilterAnwenden);
+		
+		
+		AuflistungSortiment auflistungPanel=new AuflistungSortiment();
+		auflistungPanel.setBounds(71, 89, auflistungPanel.getWidth(), auflistungPanel.getHeight());
+		add(auflistungPanel);
+		
+	}
+
 	protected void buttonZumWarenkorbActionPerformed(ActionEvent e) {
 		maingui.switchTo(v.warenkorb);
 	}
@@ -356,4 +394,5 @@ public class Sortiment extends Panelvorlage {
 
 		}
 	}
+
 }

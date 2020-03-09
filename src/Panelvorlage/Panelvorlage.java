@@ -20,7 +20,7 @@ public class Panelvorlage extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public Panelvorlage(MainGui maingui) {
+	public Panelvorlage(MainGui maingui){
 		this.maingui = maingui;
 		initGUI();
 	}

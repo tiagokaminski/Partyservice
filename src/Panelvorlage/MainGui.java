@@ -18,6 +18,7 @@ public class MainGui extends JFrame {
 	private Anmeldescreen anmeldescreen = new Anmeldescreen(this);
 	private Wilkommensscreen wilkommensscren = new Wilkommensscreen(this);
 	private Livesuche livesuche = new Livesuche(this);
+	
 	private Sortiment sortiment = new Sortiment(this);
 	private Warenkorb warenkorb = new Warenkorb(this);
 	private Kasse kasse = new Kasse(this);
@@ -28,14 +29,13 @@ public class MainGui extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ClassNotFoundException{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					MainGui frame = new MainGui();
 					frame.setVisible(true);
 					frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
-					frame.setUndecorated(true);
 					frame.setExtendedState(MAXIMIZED_BOTH);
 					frame.setResizable(true);
 
