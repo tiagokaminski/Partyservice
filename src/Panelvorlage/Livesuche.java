@@ -1,30 +1,23 @@
 package Panelvorlage;
 
-import javax.swing.JPanel;
-import javax.swing.DefaultListModel;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
-import javax.swing.JTextField;
-
-import model.Adresse;
-
-import javax.swing.JLabel;
-import javax.swing.JTextArea;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+
+import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JList;
-import java.awt.Color;
-import javax.swing.event.ListSelectionListener;
+import javax.swing.JTextField;
 import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
+import model.Adresse;
+import Panelvorlage.LivesucheAdresseDAO;
+
 
 public class Livesuche extends Panelvorlage {
 	private JButton buttonNewButton;

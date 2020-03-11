@@ -35,7 +35,7 @@ public class SortimentDao {
 
 	}
 
-	public ArrayList<Produkt> Produktnamen() {
+	public ArrayList<Produkt> ProduktnamenPreis() {
 		try {
 			Class.forName("org.sqlite.JDBC");
 		} catch (ClassNotFoundException e) {

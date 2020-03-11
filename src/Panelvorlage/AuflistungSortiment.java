@@ -32,7 +32,7 @@ public class AuflistungSortiment extends JPanel {
 	 * @throws ClassNotFoundException 
 	 */
 	public AuflistungSortiment()  {
-		produkt = dao.Produktnamen();
+		produkt = dao.ProduktnamenPreis();
 		initGUI();
 	}
 	
