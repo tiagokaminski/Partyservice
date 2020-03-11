@@ -113,9 +113,7 @@ public class Livesuche extends Panelvorlage {
 		} 
 	}
 	
-	protected void liveSucheFeld(KeyEvent e) throws ClassNotFoundException {
-		
-	
+	protected void liveSucheFeld(KeyEvent e) throws ClassNotFoundException {	
 			LivesucheAdresseDAO dao=new LivesucheAdresseDAO();
 			String eingabe = this.textField_Adresse.getText();
 			ArrayList<Adresse> adressen = dao.lifesuche(eingabe);
@@ -124,8 +122,7 @@ public class Livesuche extends Panelvorlage {
 			for(Adresse a: adressen) {
 				listmodel.addElement(a.getStrasse() + ", " + a.getPlz() + " " + a.getOrt());
 			}
-			this.list.setModel(listmodel);
-			
+			this.list.setModel(listmodel);			
 	}
 	
 	protected void listValueChanged(ListSelectionEvent e) {

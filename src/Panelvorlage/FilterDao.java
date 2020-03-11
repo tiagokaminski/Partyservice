@@ -8,6 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import model.Produkt;
+
 
 public class FilterDao {
 	private String datei;
@@ -60,7 +62,7 @@ public class FilterDao {
 			conn = DriverManager.getConnection(url);
 
 			String sql = 	"Select ID, Name, Preis, Kategorie_ID, Unterkategorie_ID FROM Produkt\r\n" + 
-							"where Kategorie_ID = ?";
+							 "where Kategorie_ID = ?";
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setLong(1, oberKategorie);
 			ResultSet resultSet = statement.executeQuery();

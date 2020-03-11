@@ -24,6 +24,7 @@ public class Panelvorlage extends JPanel {
 		this.maingui = maingui;
 		initGUI();
 	}
+	
 	private void initGUI() {
 		setBackground(Color.LIGHT_GRAY);
 		setLayout(null);
@@ -38,4 +39,3 @@ public class Panelvorlage extends JPanel {
 		btn.setForeground(Color.BLACK);
 	}
 }
-

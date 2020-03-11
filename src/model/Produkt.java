@@ -1,4 +1,4 @@
-package Panelvorlage;
+package model;
 
 public class Produkt {
 	
