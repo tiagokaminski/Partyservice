@@ -19,21 +19,22 @@ public class Wilkommensscreen extends Panelvorlage {
 		initGUI();
 	}
 	private void initGUI() {
+		setLayout(null);
 		{
 			labelPartyservice = new JLabel("Partyservice");
-			labelPartyservice.setHorizontalAlignment(SwingConstants.CENTER);
+			labelPartyservice.setVerticalAlignment(SwingConstants.BOTTOM);
 			labelPartyservice.setFont(new Font("Tahoma", Font.PLAIN, 69));
-			labelPartyservice.setBounds(0, 11, 1920, 95);
+			labelPartyservice.setBounds(33, 0, 449, 75);
 			add(labelPartyservice);
 		}
 		{
 			labelVonAndreasTom = new JLabel("Von Andreas, Tom, Tiago, Cedric und Miguel");
-			labelVonAndreasTom.setBounds(1617, 970, 274, 26);
+			labelVonAndreasTom.setBounds(230, 64, 300, 14);
 			add(labelVonAndreasTom);
 		}
 		
-		JLabel lblSmiley = new JLabel("");
-		lblSmiley.setBounds(141, 151, 46, 14);
-		add(lblSmiley);
+//		JLabel lblSmiley = new JLabel("");
+//		lblSmiley.setBounds(141, 151, 46, 14);
+//		add(lblSmiley);
 	}
 }

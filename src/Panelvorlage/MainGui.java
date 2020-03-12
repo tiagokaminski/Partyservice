@@ -3,14 +3,34 @@ package Panelvorlage;
 
 
 import java.awt.EventQueue;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Label;
+import java.awt.Toolkit;
+import java.awt.geom.RoundRectangle2D;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
 import java.util.HashMap;
 
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 import javax.swing.SwingUtilities;
 import javax.swing.SwingWorker;
 import javax.swing.Timer;
 import javax.swing.border.EmptyBorder;
+import java.awt.Color;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.Icon;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 
 public class MainGui extends JFrame {
@@ -22,6 +42,7 @@ public class MainGui extends JFrame {
 	private Warenkorb warenkorb = new Warenkorb(this);
 	private Kasse kasse = new Kasse(this);
 	private HashMap<Views, Panelvorlage> panels = new HashMap<>();
+	
 	private Timer t;
 
 
@@ -29,6 +50,7 @@ public class MainGui extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -36,8 +58,6 @@ public class MainGui extends JFrame {
 					frame.setVisible(true);
 					frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
 					//frame.setUndecorated(true);
-					frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
-					frame.setResizable(true);
 					frame.setExtendedState(MAXIMIZED_BOTH);
 					frame.setResizable(true);
 
@@ -48,15 +68,47 @@ public class MainGui extends JFrame {
 				
 			}
 		});
+	
 	}
 
 	/**
-	 * Create the frame.
+	 * Create the frame.8855
+	 * @throws IOException 
 	 */
-	public MainGui() {
+	
+	public MainGui() throws IOException {
+		try {
+			BufferedImage img=ImageIO.read(getClass().getResource("/logo_Smileyx32px.png"));
+			setIconImage(img);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		setTitle("Partyservice");
+		setResizable(false);
+		//this.setContentPane(new JLabel(new ImageIcon("resource/projektPartyServiceHintergrung.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 1500, 900);
+		setUndecorated(true);
+		setShape(new RoundRectangle2D.Double(0, 0, 1500, 900, 20,  20));
+		getContentPane().setLayout(null);
+		//setContentPane(startseite);
+		//panels.put(Views.startseite, this.startseite);
+		//panels.put(Views.profil, this.profil);
+		//panels.put(Views.impressum, this.impressum);
+		
+		
+		
+		//Image img = new ImageIcon(this.getClass().getResource("closeButton.png")).getImage();
+		
+		
+		
+		this.setLocationRelativeTo(null);
+		
+		
 		setBounds(100, 100, 960, 540);
-		setContentPane(wilkommensscren);
 		
 		
 		switchToWithDelay(Views.anmeldescreen, 1000);
@@ -68,12 +120,15 @@ public class MainGui extends JFrame {
 		panels.put(Views.sortiment, this.sortiment);
 		panels.put(Views.warenkorb, this.warenkorb);
 		panels.put(Views.kasse, this.kasse);
+		switchTo(Views.wilkommensscreen);
+
 	}
 
 	/**
 	 * man kann ein Timer für den Switch einstellen und zu einem anderen pannel switchen
 	 * @param v
 	 * @param zeitTimer
+	 * 
 	 */
 	public void switchToWithDelay(Views v, int zeitTimer) {
 		t=new Timer(zeitTimer, e ->  {
@@ -85,8 +140,12 @@ public class MainGui extends JFrame {
 	
 	public void switchTo(Views v) {
 		setContentPane(this.panels.get(v));
+		System.out.println(getContentPane().getGraphics());
+		getContentPane().repaint();
 		SwingUtilities.updateComponentTreeUI(this);
 	}
+	
+
 	
 }
 
