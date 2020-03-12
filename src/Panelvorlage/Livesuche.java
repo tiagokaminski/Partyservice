@@ -41,7 +41,7 @@ public class Livesuche extends Panelvorlage {
 					buttonNewButtonActionPerformed(e);
 				}
 			});
-			buttonNewButton.setBounds(392, 229, 101, 23);
+			buttonNewButton.setBounds(390, 310, 101, 23);
 			add(buttonNewButton);
 		}
 		{
@@ -58,24 +58,24 @@ public class Livesuche extends Panelvorlage {
 				}
 			});
 		
-			textField_Adresse.setBounds(103, 38, 199, 20);
+			textField_Adresse.setBounds(125, 121, 164, 20);
 			add(textField_Adresse);
 			textField_Adresse.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 			textField_Adresse.setColumns(10);
 		}
 		{
 			labelNewLabel = new JLabel("Stra\u00DFe:");
-			labelNewLabel.setBounds(47, 41, 46, 14);
+			labelNewLabel.setBounds(54, 124, 46, 14);
 			add(labelNewLabel);
 		}
 		{
 			labelHausnummer = new JLabel("Hausnummer:");
-			labelHausnummer.setBounds(57, 68, 103, 14);
+			labelHausnummer.setBounds(55, 149, 103, 14);
 			add(labelHausnummer);
 		}
 		{
 			textField_Hausnummer = new JTextField();
-			textField_Hausnummer.setBounds(170, 65, 46, 20);
+			textField_Hausnummer.setBounds(125, 146, 164, 20);
 			textField_Hausnummer.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 			add(textField_Hausnummer);
 			textField_Hausnummer.setColumns(10);
@@ -90,7 +90,7 @@ public class Livesuche extends Panelvorlage {
 		
 			list.setBackground(Color.WHITE);
 			list.setForeground(Color.RED);
-			list.setBounds(49, 96, 242, 122);
+			list.setBounds(47, 177, 242, 122);
 			add(list);
 		}
 		{
@@ -98,7 +98,7 @@ public class Livesuche extends Panelvorlage {
 			textField_Fehlermeldung.setForeground(Color.RED);
 			textField_Fehlermeldung.setEditable(false);
 			textField_Fehlermeldung.setBackground(Color.LIGHT_GRAY);
-			textField_Fehlermeldung.setBounds(49, 229, 316, 48);
+			textField_Fehlermeldung.setBounds(47, 310, 316, 48);
 			add(textField_Fehlermeldung);
 			textField_Fehlermeldung.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 			textField_Fehlermeldung.setColumns(10);

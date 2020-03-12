@@ -96,10 +96,9 @@ public class MainGui extends JFrame {
 		setTitle("Partyservice");
 		setResizable(false);
 		
-		System.out.println(BoundsCalc.calcBounds(100, 100, 1500, 900));
 		//this.setContentPane(new JLabel(new ImageIcon("resource/projektPartyServiceHintergrung.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(BoundsCalc.calcBounds(100, 100, 1500, 900));
+		setBounds(BoundsCalc.calcBounds(0, 0,  BoundsCalc.WIDTH,  BoundsCalc.HEIGHT));
 		setUndecorated(true);
 		// setShape(new RoundRectangle2D.Double(0, 0, 1500, 900, 20,  20));
 		getContentPane().setLayout(null);

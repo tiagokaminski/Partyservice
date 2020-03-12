@@ -6,8 +6,8 @@ import java.awt.Rectangle;
 
 public class BoundsCalc {
 	
-	static int targetWidth=3000;
-	static int targetHeight=2000;
+	static final int WIDTH=1600;
+	static final int HEIGHT=900;
 	
 	
 	public static Rectangle calcBounds(int x, int y, int width, int height) {
@@ -17,8 +17,8 @@ public class BoundsCalc {
 		int screenheight = gd.getDisplayMode().getHeight();
 		System.out.println(screenwidth);
 		
-		double wfactor=targetWidth/screenwidth;
-		double hfactor=targetHeight/screenheight;
+		double wfactor=WIDTH/screenwidth;
+		double hfactor=HEIGHT/screenheight;
 		return new Rectangle((int)(x/wfactor), (int)(y/hfactor), (int)(width/wfactor), (int) (height/hfactor));
 	}
 	
@@ -26,7 +26,7 @@ public class BoundsCalc {
 			
 			GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 			int screenheight = gd.getDisplayMode().getHeight();		
-			double hfactor=targetHeight/screenheight;
+			double hfactor=HEIGHT/screenheight;
 			return  (int) (height/hfactor);
 		}
 	
@@ -34,7 +34,7 @@ public class BoundsCalc {
 		
 		GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 		int screenwidth = gd.getDisplayMode().getWidth();
-		double wfactor=targetWidth/screenwidth;
+		double wfactor=WIDTH/screenwidth;
 		return  (int) (width/wfactor);
 	}
 
