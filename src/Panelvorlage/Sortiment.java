@@ -11,33 +11,43 @@ import javax.swing.AbstractListModel;
 import javax.swing.JTree;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JCheckBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JTextField;
 import javax.swing.tree.DefaultTreeModel;
-
 import model.Adresse;
 import model.Produkt;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
 import javax.swing.ButtonGroup;
 import java.awt.Font;
+
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.UIManager;
 
 import java.awt.Checkbox;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.EventQueue;
 import java.awt.font.TextAttribute;
+
+import java.util.ArrayList;
+
 import java.nio.file.DirectoryStream.Filter;
 import java.util.ArrayList;
 
 import javax.swing.JSeparator;
 import javax.swing.JTextPane;
 
-public class Sortiment extends Panelvorlage {
+public class Sortiment extends Panelvorlage 
+{
 	private JButton buttonZumWarenkorb;
 	private JList list;
 	private JButton buttonRefresh;
@@ -81,14 +91,28 @@ public class Sortiment extends Panelvorlage {
 	private JTextField textFieldSuchleiste;
 
 
+	private JPanel contentPane;
+	private JScrollPane scrollPane;
+	SortimentDao dao = new SortimentDao();
+
+
+
+
 	/**
 	 * Create the panel.
+	 * @throws ClassNotFoundException 
 	 */
-	public Sortiment(MainGui maingui) {
+	public Sortiment(MainGui maingui)  {
 		super(maingui);
+		//this.maingui = maingui;
 		initGUI();
+
+
+
+
+
 	}
-	private void initGUI() {
+	private void initGUI()  {
 		setLayout(null);
 		{
 			buttonZumWarenkorb = new JButton("weiter zum Warenkorb");
@@ -101,9 +125,6 @@ public class Sortiment extends Panelvorlage {
 			});
 			buttonZumWarenkorb.setBounds(1395, 736, 305, 108);
 			add(buttonZumWarenkorb);
-		}
-		{
-
 		}
 		{
 			list = new JList();
@@ -157,13 +178,40 @@ public class Sortiment extends Panelvorlage {
 			radioButtonVodka.setFont(new Font("Tahoma", Font.PLAIN, 22));
 
 		}
+
 		{
 			rdbtnextras = new JRadioButton("<html><u>Extras</u></html>");
-			buttonGroup.add(rdbtnextras);
 			rdbtnextras.setFont(new Font("Tahoma", Font.PLAIN, 26));
 			rdbtnextras.setBackground(Color.WHITE);
 			rdbtnextras.setBounds(6, 598, 201, 35);
 			panel.add(rdbtnextras);
+		}
+		{
+			radioButtonRum = new JRadioButton("Rum");
+			buttonGroup.add(radioButtonRum);
+			radioButtonRum.setBackground(Color.WHITE);
+			radioButtonRum.setBounds(6, 99, 201, 35);
+			panel.add(radioButtonRum);
+			radioButtonRum.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		}
+		{
+			radioButtonKraeuterlikoer = new JRadioButton("Kr\u00E4uterlik\u00F6r");
+			buttonGroup.add(radioButtonKraeuterlikoer);
+			radioButtonKraeuterlikoer.setBackground(Color.WHITE);
+			radioButtonKraeuterlikoer.setBounds(6, 131, 201, 35);
+			panel.add(radioButtonKraeuterlikoer);
+			radioButtonKraeuterlikoer.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		}
+		{
+			buttonFilterAnwenden = new JButton("Filter Anwenden");
+			buttonFilterAnwenden.setBackground(Color.WHITE);
+			
+		}
+			{
+			buttonFilterAnwenden.setFont(new Font("Tahoma", Font.PLAIN, 22));
+			buttonFilterAnwenden.setBounds(1697, 690, 214, 35);
+			add(buttonFilterAnwenden);
+
 		}
 		{
 			radioButtonRum = new JRadioButton("Rum");
@@ -315,6 +363,8 @@ public class Sortiment extends Panelvorlage {
 			textFieldSuchleiste.setColumns(10);
 		}
 	}
+
+	
 	{
 		buttonFilterAnwenden = new JButton("Filter Anwenden");
 		buttonFilterAnwenden.setBackground(Color.WHITE);
@@ -331,6 +381,12 @@ public class Sortiment extends Panelvorlage {
 		buttonFilterAnwenden.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		buttonFilterAnwenden.setBounds(1697, 690, 214, 35);
 		add(buttonFilterAnwenden);
+
+
+		AuflistungSortiment auflistungPanel=new AuflistungSortiment();
+		auflistungPanel.setBounds(71, 89, auflistungPanel.getWidth(), auflistungPanel.getHeight());
+		add(auflistungPanel);
+
 	}
 
 	protected void buttonZumWarenkorbActionPerformed(ActionEvent e) {
@@ -440,10 +496,12 @@ public class Sortiment extends Panelvorlage {
 		}
 		this.list.setModel(listmodel);
 	}
-	
+
 	protected void listValueChanged(ListSelectionEvent e) {
 		String a= this.list.getSelectedValue().toString();
 		this.textFieldSuchleiste.setText(a);
 	}
-	
+
 }
+
+

@@ -38,6 +38,7 @@ public class MainGui extends JFrame {
 	private Anmeldescreen anmeldescreen = new Anmeldescreen(this);
 	private Wilkommensscreen wilkommensscren = new Wilkommensscreen(this);
 	private Livesuche livesuche = new Livesuche(this);
+	
 	private Sortiment sortiment = new Sortiment(this);
 	private Warenkorb warenkorb = new Warenkorb(this);
 	private Kasse kasse = new Kasse(this);
@@ -49,16 +50,22 @@ public class MainGui extends JFrame {
 	/**
 	 * Launch the application.
 	 */
+
+	
 	public static void main(String[] args) {
 		
+
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					MainGui frame = new MainGui();
 					frame.setVisible(true);
-					frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+					//frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+
+
 					//frame.setUndecorated(true);
-					frame.setExtendedState(MAXIMIZED_BOTH);
+
+					//frame.setExtendedState(MAXIMIZED_BOTH);
 					frame.setResizable(true);
 
 					//frame.setUndecorated(true);
@@ -88,11 +95,12 @@ public class MainGui extends JFrame {
 		
 		setTitle("Partyservice");
 		setResizable(false);
+		
 		//this.setContentPane(new JLabel(new ImageIcon("resource/projektPartyServiceHintergrung.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1500, 900);
+		setBounds(BoundsCalc.calcBounds(0, 0,  BoundsCalc.WIDTH,  BoundsCalc.HEIGHT));
 		setUndecorated(true);
-		setShape(new RoundRectangle2D.Double(0, 0, 1500, 900, 20,  20));
+		// setShape(new RoundRectangle2D.Double(0, 0, 1500, 900, 20,  20));
 		getContentPane().setLayout(null);
 		//setContentPane(startseite);
 		//panels.put(Views.startseite, this.startseite);
@@ -108,7 +116,7 @@ public class MainGui extends JFrame {
 		this.setLocationRelativeTo(null);
 		
 		
-		setBounds(100, 100, 960, 540);
+//		setBounds(BoundsCalc.calcBounds(100, 100, 960, 540));
 		
 		
 		switchToWithDelay(Views.anmeldescreen, 1000);

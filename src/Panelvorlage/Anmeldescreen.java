@@ -17,6 +17,7 @@ import javax.swing.SwingConstants;
 
 public class Anmeldescreen extends Panelvorlage {
 	private JButton buttonNewButton;
+	private JButton buttonNewButton_1;
 
 	public Anmeldescreen(MainGui mainGui) {
 		super(mainGui);
@@ -40,9 +41,10 @@ public class Anmeldescreen extends Panelvorlage {
 				}
 			});
 			setLayout(null);
-			buttonNewButton.setBounds(1200, 30, 200, 25);
+			buttonNewButton.setBounds(BoundsCalc.calcBounds(300, 300, 200, 100));
 			add(buttonNewButton);
 			
+		
 	}
 	protected void buttonNewButtonActionPerformed(ActionEvent e) {
 		maingui.switchTo(v.liveSuche);
