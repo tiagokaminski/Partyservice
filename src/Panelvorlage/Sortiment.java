@@ -37,7 +37,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.font.TextAttribute;
-
+import java.io.IOException;
 import java.util.ArrayList;
 
 import java.nio.file.DirectoryStream.Filter;
@@ -205,9 +205,9 @@ public class Sortiment extends Panelvorlage
 		{
 			buttonFilterAnwenden = new JButton("Filter Anwenden");
 			buttonFilterAnwenden.setBackground(Color.WHITE);
-			
+
 		}
-			{
+		{
 			buttonFilterAnwenden.setFont(new Font("Tahoma", Font.PLAIN, 22));
 			buttonFilterAnwenden.setBounds(1697, 690, 214, 35);
 			add(buttonFilterAnwenden);
@@ -364,7 +364,7 @@ public class Sortiment extends Panelvorlage
 		}
 	}
 
-	
+
 	{
 		buttonFilterAnwenden = new JButton("Filter Anwenden");
 		buttonFilterAnwenden.setBackground(Color.WHITE);
@@ -383,10 +383,15 @@ public class Sortiment extends Panelvorlage
 		add(buttonFilterAnwenden);
 
 
-		AuflistungSortiment auflistungPanel=new AuflistungSortiment();
-		auflistungPanel.setBounds(71, 89, auflistungPanel.getWidth(), auflistungPanel.getHeight());
-		add(auflistungPanel);
-
+		AuflistungSortiment auflistungPanel;
+		try {
+			auflistungPanel = new AuflistungSortiment();
+			auflistungPanel.setBounds(71, 89, auflistungPanel.getWidth(), auflistungPanel.getHeight());
+			add(auflistungPanel);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	protected void buttonZumWarenkorbActionPerformed(ActionEvent e) {

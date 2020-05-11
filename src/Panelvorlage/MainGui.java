@@ -98,7 +98,7 @@ public class MainGui extends JFrame {
 		
 		//this.setContentPane(new JLabel(new ImageIcon("resource/projektPartyServiceHintergrung.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(BoundsCalc.calcBounds(0, 0,  BoundsCalc.WIDTH,  BoundsCalc.HEIGHT));
+		setBounds(0, 0,  1920, 1080);
 		setUndecorated(true);
 		// setShape(new RoundRectangle2D.Double(0, 0, 1500, 900, 20,  20));
 		getContentPane().setLayout(null);
@@ -119,7 +119,7 @@ public class MainGui extends JFrame {
 //		setBounds(BoundsCalc.calcBounds(100, 100, 960, 540));
 		
 		
-		switchToWithDelay(Views.anmeldescreen, 1000);
+		switchToWithDelay(Views.sortiment, 1000);
 	
 		
 		panels.put(Views.wilkommensscreen, this.wilkommensscren);

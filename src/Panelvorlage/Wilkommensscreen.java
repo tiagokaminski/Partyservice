@@ -30,7 +30,7 @@ public class Wilkommensscreen extends Panelvorlage {
 		}
 		{
 			labelVonAndreasTom = new JLabel("Von Andreas, Tom, Tiago, Cedric und Miguel");
-			labelVonAndreasTom.setBounds(BoundsCalc.calcBounds(230, 64, 300, 14));
+			labelVonAndreasTom.setBounds(230, 64, 300, 14);
 			add(labelVonAndreasTom);
 		}
 		

@@ -41,7 +41,7 @@ public class Anmeldescreen extends Panelvorlage {
 				}
 			});
 			setLayout(null);
-			buttonNewButton.setBounds(BoundsCalc.calcBounds(300, 300, 200, 100));
+			buttonNewButton.setBounds(300, 300, 200, 100);
 			add(buttonNewButton);
 			
 		
