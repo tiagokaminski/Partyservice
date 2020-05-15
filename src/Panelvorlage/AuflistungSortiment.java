@@ -36,7 +36,7 @@ public class AuflistungSortiment extends JPanel {
 	private JScrollPane scrollPane;
 	SortimentDao dao = new SortimentDao();
 	ArrayList<Produkt> produkt;
-	File[] locationName = new File("C:\\Users\\a\\git\\Partyservice\\images").listFiles();
+	File[] locationName = new File("C:\\Users\\Gamemaster negerbob\\git\\Partyservice\\images\\Produkt_Plastikmesser.png").listFiles();
 	//File[] pathName = new File("C:\\Users\\a\\git\\Partyservice\\images").listFiles();
 
 	/**
@@ -83,25 +83,25 @@ public class AuflistungSortiment extends JPanel {
 
 
 		//	for (int j = 0; j < pathName.length; j++) {
-//
-//				String s = "/Partyservice/images/Produkt_Plastikmesser.png";
-//				int index = s.lastIndexOf('/');
-//				String pathName = s.substring(index+1);
-//				System.out.println(pathName);
-//				for (int i1 = 0; i1 < locationName.length; i1++) {
-//					String s1 = locationName[i1].toString();
-//						int index2 = s1.lastIndexOf('t');
-//					//String locationName = s1.substring(index+1);
-//					//System.out.println(locationName);
-//					if (s1.equals("C:\\Users\\a\\git\\Partyservice\\images\\" + pathName)) {
-//						if (pathName.equals("Produkt_" + this.produkt.get(i).getName() + ".png")) {
-//							System.out.println("3");
-//							BufferedImage myPicture = ImageIO.read(new File(s1));
-//							JLabel picLabel = new JLabel(new ImageIcon(myPicture));
-//							picLabel.setBounds(390, 11, 100,50);
-//							panel.add(picLabel);
+
+				String s = "/Partyservice/images/Produkt_Plastikmesser.png";
+				int index = s.lastIndexOf('/');
+				String pathName = s.substring(index+1);
+				System.out.println(pathName);
+				//for (int i1 = 0; i1 < locationName.length; i1++) {
+					String s1 = "C:\\Users\\Gamemaster negerbob\\git\\Partyservice\\images\\Produkt_Plastikmesser.png";
+					//int index2 = s1.lastIndexOf('t');
+					//String locationName = s1.substring(index+1);
+					//System.out.println(locationName);
+					if (s1.equals("C:\\Users\\Gamemaster negerbob\\git\\Partyservice\\images\\" + pathName)) {
+						if (pathName.equals("Produkt_" + this.produkt.get(i).getName() + ".png")) {
+							System.out.println("3");
+							BufferedImage myPicture = ImageIO.read(new File(s1));
+							JLabel picLabel = new JLabel(new ImageIcon(myPicture));
+							picLabel.setBounds(390, 11, 100,50);
+							panel.add(picLabel);
 						}
-//					}       Das nicht
+					}      // Das nicht
 					//				ArrayList<BufferedImage> ImmageList = new ArrayList<>();
 					//				for (int i1 = 0; i1 < ImmageList.size(); i1++) {
 					//
@@ -109,10 +109,12 @@ public class AuflistungSortiment extends JPanel {
 					//						
 					//					//	BufferedImage bild = this.ImmageList.get(i1);
 					//				//		bild.setBounds(130, 11, 46, 14);
-			//	}
-				this.panel.setPreferredSize(new Dimension(180,  this.produkt.size()*70));
+						}
+					this.panel.setPreferredSize(new Dimension(180,  this.produkt.size()*70));
+				}
 			}
-		}
+
+		
 	
 
 

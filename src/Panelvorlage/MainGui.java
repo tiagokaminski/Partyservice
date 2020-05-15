@@ -119,7 +119,7 @@ public class MainGui extends JFrame {
 //		setBounds(BoundsCalc.calcBounds(100, 100, 960, 540));
 		
 		
-		switchToWithDelay(Views.sortiment, 1000);
+		switchToWithDelay(Views.anmeldescreen, 1000);
 	
 		
 		panels.put(Views.wilkommensscreen, this.wilkommensscren);
